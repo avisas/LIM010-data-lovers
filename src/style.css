@@ -1,5 +1,51 @@
-.formContainer{
-    width: 345px;
-    height: 360px;
-    border: 1px solid black;
+.displayflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    width: 460px;
+    height: 516px;
+    border: 1px solid black;  
+}
+
+.classLabel{
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 65.42%;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+}
+
+.classInput{
+    width: 335px;
+    height: 45px;
+}
+.btnSubmit{
+    width: 335px;
+    height: 50px;
+    color: white;
+    background-color: #3897F0;
+    display: flex;
+}
+
+.classAhref{
+    color: #000000;
+    font-weight: bold;
+    text-align: right;
+}
+
+.fontWeight{
+    font-weight: bold;
+}
+
+.classCenter{
+    text-align: center;
 }
