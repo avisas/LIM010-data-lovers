@@ -8,44 +8,60 @@
 .container{
     width: 460px;
     height: 516px;
-    border: 1px solid black;  
+    border: 1px solid black;
+    color: whitesmoke;
+    background: linear-gradient(45deg, #192046, #53af9e8f);
+}
+
+.classImageLogin{
+    width: 159px;
+    height: 58px;
 }
 
 .classLabel{
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 65.42%;
     font-family: Open Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
-    line-height: 22px;
-    display: flex;
+    margin-top: 22px;
+    display: block;
+    line-height: 25px;
 }
 
 .classInput{
     width: 335px;
     height: 45px;
+    margin-top: 5px;
+    border-color: whitesmoke;
+    border: transparent;
+    background-color: whitesmoke;
 }
+
 .btnSubmit{
     width: 335px;
     height: 50px;
     color: white;
     background-color: #3897F0;
-    display: flex;
+    border: 1px solid #3897f0;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 45px;
+    cursor: pointer;
 }
 
 .classAhref{
-    color: #000000;
+    color: whitesmoke;
+    font-size: 15px;
     font-weight: bold;
     text-align: right;
+    display: block;
+    margin-top: 15px;
 }
 
 .fontWeight{
     font-weight: bold;
+    color: #ffcb05;
 }
 
 .classCenter{
     text-align: center;
+    font-size: 16px;
 }
