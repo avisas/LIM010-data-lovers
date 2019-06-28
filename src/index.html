@@ -4,15 +4,67 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+HK&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <img src="img/icon-logo.png" alt="logo de pokémon">
+      <button class="btn btn-circulo">Salir</button>
+    </header>
+    <main class="displayflex">
+      <section class="displayflex container" id="cont-login">
+          <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
+          <div>
+            <div>
+              <label for="uname" class="classLabel">Usuario</label>
+              <input type="text" id="inputUname" class="classInput" name="uname" >
+            </div> 
+            <div class="formClassPsw">
+              <label for="psw" class="classLabel">Contraseña</label>
+              <input type="password" id="inputPsw" class="classInput" name="psw">
+            </div> 
+              <a href="#" class="classAhref" >¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="formClassEnter">
+            <input type="button" id="inputSubmit" class="btnSubmit" value="INGRESA"> 
+            <p class="classCenter">¿No tienes una cuenta? <a href="#" class="fontWeight classCenter">Regístrate</a></p>
+          </div>
+      </section>
+      <section class="pokedex" id="pokedex">
+        <nav class="navbar"> 
+          <div class="selectores">
+           <select class="filtro" >
+             <option value="volvo">Predefinido</option>
+             <option value="saab">A-Z</option>
+             <option value="mercedes">Z-A</option>
+           </select>
+           <select class="filtro" >
+             <option value="volvo">Mis Pokémones</option>
+             <option value="saab">Por atrapar</option>
+           </select>
+           <select class="filtro" >
+             <option value="volvo">Ascendente</option>
+             <option value="saab">Descendente</option>
+           </select>
+          </div>
+
+           <button class="btn-barra">Tipos</button>
+           <button class="btn-barra">Debilidades</button>
+           <button class="btn-barra">% de Pokémon<img src="img/icon-huevo.png"></button>
+        </nav>
+      </section>
+
+    </main>
     <footer></footer>
     <!-- <script src="./data/lol/lol.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
+    <script src="./data/pokemon/pokemon.js"></script>
     <!-- <script src="./data/worldbank/worldbank.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
+
+<!-- Comando para 
+git remore add 
+Pull requests para verificar que me sirve o no
+Pull requests, es un p -->
