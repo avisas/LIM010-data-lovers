@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+HK&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header></header>
+    <header>
+      <img src="img/icon-logo.png" alt="logo de pokémon">
+      <button class="btn btn-circulo">Salir</button>
+    </header>
     <main class="displayflex">
-      <section class="displayflex container">
-          <img src="../Images/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
+      <section class="displayflex container" id="cont-login">
+          <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
           <div>
             <div>
               <label for="uname" class="classLabel">Usuario</label>
@@ -27,11 +30,33 @@
             <p class="classCenter">¿No tienes una cuenta? <a href="#" class="fontWeight classCenter">Regístrate</a></p>
           </div>
       </section>
+      <section class="pokedex" id="pokedex">
+        <nav class="navbar"> 
+          <div class="selectores">
+           <select class="filtro" >
+             <option value="volvo">Predefinido</option>
+             <option value="saab">A-Z</option>
+             <option value="mercedes">Z-A</option>
+           </select>
+           <select class="filtro" >
+             <option value="volvo">Mis Pokémones</option>
+             <option value="saab">Por atrapar</option>
+           </select>
+           <select class="filtro" >
+             <option value="volvo">Ascendente</option>
+             <option value="saab">Descendente</option>
+           </select>
+          </div>
 
+           <button class="btn-barra">Tipos</button>
+           <button class="btn-barra">Debilidades</button>
+           <button class="btn-barra">% de Pokémon<img src="img/icon-huevo.png"></button>
+        </nav>
+      </section>
     </main>
     <footer></footer>
     <!-- <script src="./data/lol/lol.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
+    <script src="./data/pokemon/pokemon.js"></script>
     <!-- <script src="./data/worldbank/worldbank.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
