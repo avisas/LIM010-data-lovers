@@ -5,55 +5,56 @@
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+HK&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
     <header>
       <img src="img/icon-logo.png" alt="logo de pokémon">
       <button class="btn btn-circulo">Salir</button>
     </header>
-    <main class="displayflex">
-      <section class="displayflex container" id="cont-login">
-          <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
-          <div>
-            <div>
-              <label for="uname" class="classLabel">Usuario</label>
-              <input type="text" id="inputUname" class="classInput" name="uname" >
-            </div> 
-            <div class="formClassPsw">
-              <label for="psw" class="classLabel">Contraseña</label>
-              <input type="password" id="inputPsw" class="classInput" name="psw">
-            </div> 
-              <a href="#" class="classAhref" >¿Olvidaste tu contraseña?</a>
-          </div>
-          <div class="formClassEnter">
-            <input type="button" id="inputSubmit" class="btnSubmit" value="INGRESA"> 
-            <p class="classCenter">¿No tienes una cuenta? <a href="#" class="fontWeight classCenter">Regístrate</a></p>
-          </div>
+    <main class="display-flex">
+      <section class="display-flex container-login" id="cont-login">
+        <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
+        <div class="cont-inputs">
+          <label class="classLabel">Usuario:</label>
+          <input type="text" id="inputUname" class="classInput">
+          <label class="classLabel">Contraseña:</label>
+          <input type="password" id="inputPsw" class="classInput">
+          <a href="#" class="classAhref" >¿Olvidaste tu contraseña?</a>
+        </div>
+        <button id="inputSubmit" class="btn btnSubmit">INGRESA</button>
+        <p class="classCenter">¿No tienes una cuenta? <a href="#" class="fontWeight classCenter">Regístrate</a>
+         </p>
       </section>
-      <section class="pokedex" id="pokedex">
-        <nav class="navbar"> 
-          <div class="selectores">
-           <select class="filtro" >
-             <option value="volvo">Predefinido</option>
-             <option value="saab">A-Z</option>
-             <option value="mercedes">Z-A</option>
-           </select>
-           <select class="filtro" >
-             <option value="volvo">Mis Pokémones</option>
-             <option value="saab">Por atrapar</option>
-           </select>
-           <select class="filtro" >
-             <option value="volvo">Ascendente</option>
-             <option value="saab">Descendente</option>
-           </select>
+      <section class="pokedex display-flex" id="pokedex">
+        <nav class="navbar display-flex">
+          <div class="cont-filtros">
+            <label>Pokémones:</label>
+            <label>Ordenar por nombre:</label>
+            <label>Ordenar por Spawn:</label>
+            <div class="selectores">
+              <select class="filtro">
+                <option value="">Todos</option>
+                <option value="">Mis Pokémones</option>
+                <option value="">Por atrapar</option>
+              </select>
+              <select class="filtro" >
+                <option value="">Predeterminado</option>
+                <option value="">A-Z</option>
+                <option value="">Z-A</option>
+              </select>
+              <select class="filtro" >
+                <option value="">Predeterminado</option>
+                <option value="">Menor a Mayor</option>
+                <option value="">Mayor a Menor</option>
+              </select>
+            </div>
           </div>
-
-           <button class="btn-barra">Tipos</button>
-           <button class="btn-barra">Debilidades</button>
-           <button class="btn-barra">% de Pokémon<img src="img/icon-huevo.png"></button>
+          <button class="btn">Tipos</button>
+          <button class="btn">Debilidades</button>
+          <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>
         </nav>
       </section>
-
     </main>
     <footer></footer>
     <!-- <script src="./data/lol/lol.js"></script> -->

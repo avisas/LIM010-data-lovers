@@ -1,42 +1,38 @@
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 0px;
+	width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(36, 4, 64);
-  border: 0px none;
-  border-radius: 50px;
-}
+	background: rgb(38, 109, 185);
+	border-radius: 50px;
+	}
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFEB3B;
-}
+	background: #ffcc00;
+	}
 
 ::-webkit-scrollbar-track {
-  background: rgb(243, 243, 243);
-  border: 0px none rgb(255, 255, 255);
-  border-radius: 50px;
-}
-
-
+	background: rgb(243, 243, 243);
+	border-radius: 50px;
+	}
 /*GENERAL-----------------------------------------*/
-*{border: 0;margin: 0;padding: 0;color: inherit;text-decoration: none;list-style-type: none;position: relative;box-sizing: border-box;outline: none;}
-
-body{
-	font-family: 'Montserrat', sans-serif;
-	color: #474747;
-	
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	text-decoration: none;
+	list-style-type: none;
+	box-sizing: border-box;
+	outline: none;
 }
-input{
- color: #474747;
+.display-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-header{
-  background-color: #266DB9;
-  height: 50px;
-}
-header img{
-  background-color: #266DB9;
-  height: 50px;
-  position: absolute;
+.btn{
+    border-radius: 5px;
+    height: 50px;
+    cursor: pointer;
 }
 .btn-circulo{
     background-color: #ED5564;
@@ -47,59 +43,67 @@ header img{
     right: 20px;
     top: 7px;
 }
-main{}
 
-.displayflex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+input{
+ color: #474747;
 }
-.container{
-    width: 460px;
-    height: 516px;
-    border: 1px solid black;
-    color: whitesmoke;
-    background: linear-gradient(45deg, #192046, #53af9e8f);
+/*------------------------*/
+body{
+	font-family: 'Montserrat', sans-serif;
+	color: #474747;
 }
-.classImageLogin{
-    width: 159px;
-    height: 58px;
+main{
+	height: calc(100vh - 50px);
 }
-
+header{
+  background-color: #266DB9;
+  height: 50px;
+}
+header img{
+  background-color: #266DB9;
+  height: 50px;
+  position: absolute;
+}
+.container-login{
+	flex-direction:column;
+	max-width: 460px;
+	width: 100%;
+	height: 516px;
+	color: whitesmoke;
+	background: linear-gradient(45deg, #192046, #53af9e8f);
+}
+.container-login img{
+    width: 150px;
+    height: auto;
+}
+.cont-inputs{
+    width: 80%;
+    max-width: 335px;
+}
 .classLabel{
     font-size: 16px;
-    margin-top: 22px;
+    margin: 25px 0 5px;
     display: block;
-    line-height: 25px;
 }
-
 .classInput{
-    width: 335px;
+    width: 100%;
     height: 45px;
-    margin-top: 5px;
-    border-color: whitesmoke;
-    border: transparent;
     background-color: whitesmoke;
 }
 .btnSubmit{
-    width: 335px;
-    height: 50px;
-    color: white;
+    width: 80%;
+    max-width: 280px;
     background-color: #3897F0;
-    border: 1px solid #3897f0;
     font-weight: bold;
-    border-radius: 5px;
     margin-top: 45px;
-    cursor: pointer;
+    height: 50px;
 }
 .classAhref{
-    color: whitesmoke;
     font-size: 15px;
     font-weight: bold;
     text-align: right;
     display: block;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 .fontWeight{
     font-weight: bold;
@@ -107,30 +111,33 @@ main{}
 }
 .classCenter{
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
+    margin-top: 10px;
 }
 .pokedex{
+    display: none;
     background-image: url(img/fondo-pokemon.svg);
     background-size: cover;
-    display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    height: 100%;
     overflow: auto;
-    justify-content: center;
-    display: none;
+    justify-content: space-evenly;
+    padding: 30px 0;
 }
 .content-pokemones{
-    width: 171px;
-    display: flex;
+    width: 15%;
+    min-width: 110px;
+    max-width: 170px;
     flex-direction: column;
-    text-align: center;
     position: relative;
-    margin: 20px 20px;
+    margin: 20px 10px;
 }
-.por-atrapar img{filter: grayscale(1);opacity: 0.6;}
+.por-atrapar img{
+	filter: grayscale(1);
+	}
 .por-atrapar .cant-multipliers{
-  display:none;
-}
+	display:none;
+	}
 .cant-multipliers{
     background-image: url(img/icon-multipliers.png);
     background-repeat: no-repeat;
@@ -139,12 +146,16 @@ main{}
     text-align: center;
     padding: 2px 2px 11px;
     position: absolute;
-    top: 5px;
+    top: -10px;
     right: 25px;
     z-index: 1;
 }
+.icon-pokeball{
+	
+width: 15px;
+}
 .img-pokemon{
-    width: 160px;
+    width: 100%;
     height: auto;
 }
 .contenido-poke{
@@ -155,7 +166,9 @@ main{}
     align-items: center;
 }
 .nombre-pokemon{
-    margin: 0px 0px 4px;
+    margin: 4px 0px 4px;
+    font-size: 16px;
+    text-align: center;
 }
 .num-pokemon{
     margin-bottom: 8px;
@@ -168,16 +181,16 @@ main{}
     width: 20px;
     margin: 0 4px;
 }
-
 .navbar{
     position: fixed;
     bottom: 0;
     z-index: 2;
     overflow: hidden;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    /* display: flex; */
+    /* justify-content: space-around; */
     padding: 24px 0;
+    flex-wrap: wrap;
 }
 .navbar:after{
     content:"";
@@ -189,12 +202,23 @@ main{}
     z-index: -1;
     filter: blur(30px);
 }
-.selectores{background-color: white;width: fit-content;border-radius: 26px;overflow: hidden;text-align: center;padding: 0 10px;}
+.cont-filtros{
+    min-width: 320px;
+}
+.cont-filtros label{}
+.selectores{
+	background-color: white;
+	width: fit-content;
+	border-radius: 26px;
+	overflow: hidden;
+	text-align: center;
+	}
 .filtro{
-    padding: 13px 18px;
+    padding: 13px 0px;
+    width: 30%;
 }
 /* filter: blur(8px); */
-.btn-barra{
+.navbar .btn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,46 +228,31 @@ main{}
     width: 16%;
     max-width: 150px;
 }
-.btn-barra img{
-  
-height: 22px;
-  
-margin-left: 7px;
+.btn img{
+	height: 22px;
+	margin-left: 7px;
 }
-
 .flex{
   display:flex !important;
 }
 .none{
   display:none !important;
 }
-@media only screen and (max-width: 320px){
-.container{
-    width: 320px;
-    height: 568px;
-    border: none;
-    }
-
-.classImageLogin{
+@media (min-width: 801px) {
+	
+  .classImageLogin{
     width: 221.15px;
-    height: 60px;
-    }
-
-.classInput{
-    width: 280px;
-    height: 45px;
+  }
+  .classCenter{
+  	width: 280px;
+  	height: 22px;
+  }
+  .content-pokemones{
+    min-width: 130px;
+    margin: 25px 14px;
 }
-
-.classAhref{
-    width: 280px;
-    height: 22px;
+  .nombre-pokemon {
+    font-size: 18px;
 }
-.btnSubmit{
-    width: 280px;
-    height: 50px;
-}
-
-.classCenter{
-    width: 280px;
-    height: 22px;
+  
 }
