@@ -20,7 +20,6 @@ for (i = 0; i < datosPokemones.length; i++) {
 	for (n = 0; n < tiposPokemon.length; n++) {
 		iconsTipo +=`<img src="img/icon-${tiposPokemon[n]}.png" alt="${tiposPokemon[n]}">`;
 	}
-	
 	pokedex.innerHTML +=`<div class="content-pokemones display-flex ${esNull}">
           <span class="cant-multipliers">x${cantMultipliers}</span>
           <img class="img-pokemon" src="${pokemon.img}">
