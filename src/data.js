@@ -2,49 +2,31 @@
 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
-const pokedex = document.getElementById('pokedex');
-const datosPokemones = POKEMON.pokemon;
-let iconsTipo='';
-let esNull='';
-for (i = 0; i < datosPokemones.length; i++) { 
-	let pokemon = datosPokemones[i];
-	let cantMultipliers=0;
-	let tiposPokemon = pokemon.type;
+const mostrarPokemones = (todoPokemon) => {
+  const newArrayPokemones = [];
+  for(let i = 0; i < todoPokemon.length; i++){
+  	
+  	newArrayPokemones.push({
+  		id : todoPokemon[i].id, 
+  		num : todoPokemon[i].num,  		
+  		nombre : todoPokemon[i].name,
+  		imagen : todoPokemon[i].img,
+  		tipo : todoPokemon[i].type,
+  		altura : todoPokemon[i].height,
+        peso: todoPokemon[i].weight,
+        caramelo: todoPokemon[i].candy,
+        cant_caramelo: todoPokemon[i].candy_count,
+        huevo: todoPokemon[i].egg,
+        prom_aparicion : todoPokemon[i].avg_spawns,
+        cant_pokemon: todoPokemon[i].multipliers,
+        debilidad: todoPokemon[i].weaknesses,
+        pre_evolucion : todoPokemon[i].prev_evolution,
+        sig_evolucion : todoPokemon[i].next_evolution
+  	})
 
-	if (pokemon.multipliers===null) {
-		esNull='por-atrapar';
-	}else{
-		cantMultipliers = pokemon.multipliers.length;
-	}
+  }
 
-	for (n = 0; n < tiposPokemon.length; n++) {
-		iconsTipo +=`<img src="img/icon-${tiposPokemon[n]}.png" alt="${tiposPokemon[n]}">`;
-	}
-	pokedex.innerHTML +=`<div class="content-pokemones display-flex ${esNull}">
-          <span class="cant-multipliers">x${cantMultipliers}</span>
-          <img class="img-pokemon" src="${pokemon.img}">
-          <div class="contenido-poke">
-            <h2 class="nombre-pokemon">${pokemon.name}</h2>
-            <p class="num-pokemon">#${pokemon.num}</p>
-            <div class="cont-tipo">${iconsTipo}</div>
-          </div>
-        </div>`;
-  iconsTipo='';
-  esNull='';
-}
+  return newArrayPokemones;
+};
 
-
-// const mostrarPokemon = (data) => {
-//   const newArrayPokemones = [];
-//   for(let i = 0; i < data.length; i++){
-//   	newArrayPokemones.push({
-//   		nombre : data[i].name,
-//   		imagen : data[i].img
-//   	})
-
-//   }
-
-//   return newArrayPokemones;
-// };
-
-// window.example = mostrarPokemon;
+window.example = mostrarPokemones;

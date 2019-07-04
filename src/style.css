@@ -137,7 +137,10 @@ header img{
 	}
 .por-atrapar .cant-multipliers{
 	display:none;
-	}
+    }
+    .soloMisPokemones .por-atrapar{
+        display: none;
+    }
 .cant-multipliers{
     background-image: url(img/icon-multipliers.png);
     background-repeat: no-repeat;
@@ -191,6 +194,7 @@ width: 15px;
     /* justify-content: space-around; */
     padding: 24px 0;
     flex-wrap: wrap;
+    display: none;
 }
 .navbar:after{
     content:"";
