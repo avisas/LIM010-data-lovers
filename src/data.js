@@ -1,3 +1,31 @@
+const todoPokemon = POKEMON.pokemon;
+const pokemonesArray = () => {
+  const newArrayPokemones = [];
+  for (let i = 0; i < todoPokemon.length; i++) {
+    newArrayPokemones.push({
+      id: todoPokemon[i].id, 
+  		num: todoPokemon[i].num,  		
+  		name: todoPokemon[i].name,
+  		img: todoPokemon[i].img,
+  		type: todoPokemon[i].type,
+      height: todoPokemon[i].height,
+      weight: todoPokemon[i].weight,
+      candy: todoPokemon[i].candy,
+      candy_count: todoPokemon[i].candy_count,
+      egg: todoPokemon[i].egg,
+      avg_spawns: todoPokemon[i].avg_spawns,
+      multipliers: todoPokemon[i].multipliers,
+      weaknesses: todoPokemon[i].weaknesses,
+      prev_evolution: todoPokemon[i].prev_evolution,
+      next_evolution: todoPokemon[i].next_evolution
+  	});
+  }
+  return newArrayPokemones;
+};
+window.example = pokemonesArray;
+
+
+
 const createEmptyObj = () => {
   return {
     pokemon: []
@@ -5,21 +33,21 @@ const createEmptyObj = () => {
 };
 
 const getAllPokemon = () => {
-  let pokedexToShow = createEmptyObj();
-  pokedexToShow.pokemon = POKEMON_RAW_DATA.pokemon.filter(pkm => true);
-  return pokedexToShow;
+  let pokedexAll = createEmptyObj();
+  pokedexAll.pokemon = pokemonesArray().filter(pkm => true);
+  return pokedexAll;
 };
 
 const getCatchedPokemon = () => {
-  let pokedexToShow = createEmptyObj();
-  pokedexToShow.pokemon = POKEMON_RAW_DATA.pokemon.filter(pkm => pkm.multipliers);
-  return pokedexToShow;
+  let pokedexCatched = createEmptyObj();
+  pokedexCatched.pokemon = pokemonesArray().filter(pkm => pkm.multipliers);
+  return pokedexCatched;
 };
 
 const getUncatchedPokemon = () => {
-  let pokedexToShow = createEmptyObj();
-  pokedexToShow.pokemon = POKEMON_RAW_DATA.pokemon.filter(pkm => !(pkm.multipliers));
-  return pokedexToShow;
+  let pokedexUncatched = createEmptyObj();
+  pokedexUncatched.pokemon = pokemonesArray().filter(pkm => !(pkm.multipliers));
+  return pokedexUncatched;
 };
 
 const orderAscPokemon = (pokedexToShow) => {

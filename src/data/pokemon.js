@@ -1,4 +1,4 @@
-const POKEMON_RAW_DATA = {
+const POKEMON = {
   'pokemon': [{
     "id": 1,
     "num": "001",
