@@ -1,20 +1,15 @@
-/* Manejo del DOM */
 const contLogin = document.getElementById('cont-login');
 const btnSubmit = document.getElementById('inputSubmit');
 const enteredUsername = document.getElementById('inputUname').value;
 const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
 const navbar = document.getElementById('navbar');
-const datosPokemones = mostrarPokemones(POKEMON.pokemon);
-let iconsTipo = '';
-let esNull = '';
-let cantMultipliers = 0;
-let tiposPokemon = '';
+let sectionPokedex = document.getElementById('pokedex');
+let pokedexToShow = POKEMON_RAW_DATA;//should always be updated when the list of pokemon is updated
 
-// Login  
 btnSubmit.addEventListener('click', () => {
 	if (enteredUsername === '' && enteredPassword === '') {
-		pokedex.classList.add('flex');//DEFINIR QUE ES POKEDEX
+		sectionPokedex.classList.add('flex');
 		navbar.classList.add("flex");
 		contLogin.classList.add("none");
 	}
@@ -22,56 +17,43 @@ btnSubmit.addEventListener('click', () => {
 
 selectPokemon.addEventListener("change", () => {
 	//console.log('HUBO UN CAMBIO!!!');
-	if (selectPokemon.value === 'Todos') {
-		pokedex.classList.add("soloMisPokemones");
-	}
-	if (selectPokemon.value === 'Mis Pokémones') {
-		showPokemons(datosPokemones);
-	}
-	if (selectPokemon.value === 'Por atrapar') {
-		showPokemons(datosPokemones);
-	}
 	switch (selectPokemon.value) {
 		case 'all':
-			//
+			renderPokedex(pokedexToShow);
 			break;
 		case 'catched':
-			//
+			renderPokedex(/*TO BE DEFINED*/);
 			break;
 		case 'uncatched':
-			//
+			renderPokedex(/*TO BE DEFINED*/);
 			break;
 	}
 });
 
+const renderPokedex = (pokemonList) => {
+	sectionPokedex.innerHTML = '';
+	for (let pokemon of pokemonList.pokemon) {
+		let esNull = '';
+		let cantMultipliers = 0;
+		let iconsTipo = '';
 
-const showPokemons = (datosPokemones) => {
-	for (let i = 0; i < datosPokemones.length; i++) {
-		pokemon = datosPokemones[i];
-		tiposPokemon = pokemon.tipo;//ARRAY
+		if (pokemon.multipliers === null) esNull = 'por-atrapar';
+		else cantMultipliers = pokemon.multipliers.length;
 
-		if (pokemon.cant_pokemon === null) {
-			esNull = 'por-atrapar';
-		} else { //TENGO POR LO MENOS UN POKEMON...
-			cantMultipliers = pokemon.cant_pokemon.length;
-		}
-
-		for (let n = 0; n < tiposPokemon.length; n++) {
-			iconsTipo += `<img src="img/icon-${tiposPokemon[n]}.png" alt="${tiposPokemon[n]}">`;
-			//`<img src="./img/icon-Grass.png" alt="Grass">`;
-			//`<img src="./img/icon-Poison.png" alt="Poison">`;
-		}
-
-		pokedex.innerHTML += `<div class="content-pokemones display-flex ${esNull}">
-			  <span class="cant-multipliers">x${cantMultipliers}</span>
-			  <img class="img-pokemon" src="${pokemon.imagen}">
-			  <div class="contenido-poke">
-				<h2 class="nombre-pokemon">${pokemon.nombre}</h2>
+		for (let pokemonType of pokemon.type)
+			iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
+		if (pokemon.id===74) console.log([esNull, pokemon.img]);
+		sectionPokedex.innerHTML +=
+		`<div class="content-pokemones display-flex ${esNull}">
+			<span class="cant-multipliers">x${cantMultipliers}</span>
+			<img class="img-pokemon" src="${pokemon.img}">
+			<div class="contenido-poke">
+				<h2 class="nombre-pokemon">${pokemon.name}</h2>
 				<p class="num-pokemon">#${pokemon.num}</p>
 				<div class="cont-tipo">${iconsTipo}</div>
-			  </div>
-			</div>`;
-		iconsTipo = '';
-		esNull = '';
+			</div>
+		</div>`;
 	};
 };
+
+renderPokedex(pokedexToShow);
