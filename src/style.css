@@ -80,17 +80,17 @@ header img{
     width: 80%;
     max-width: 335px;
 }
-.classLabel{
+.class-label{
     font-size: 16px;
     margin: 25px 0 5px;
     display: block;
 }
-.classInput{
+.class-input{
     width: 100%;
     height: 45px;
     background-color: whitesmoke;
 }
-.btnSubmit{
+.btn-submit{
     width: 80%;
     max-width: 280px;
     background-color: #3897F0;
@@ -98,18 +98,18 @@ header img{
     margin-top: 45px;
     height: 50px;
 }
-.classAhref{
+.class-ahref{
     font-size: 15px;
     font-weight: bold;
     text-align: right;
     display: block;
     margin-top: 12px;
 }
-.fontWeight{
+.font-weight{
     font-weight: bold;
     color: #ffcb05;
 }
-.classCenter{
+.class-center{
     text-align: center;
     font-size: 15px;
     margin-top: 10px;
@@ -135,14 +135,16 @@ header img{
 .por-atrapar img{
 	filter: grayscale(1);
 	}
-.por-atrapar .cant-multipliers{
+.por-atrapar .cant-multipliers {
 	display:none;
-    }
-    .soloMisPokemones .por-atrapar{
+}
+
+.soloMisPokemones .por-atrapar {
         display: none;
-    }
+}
+
 .cant-multipliers{
-    background-image: url(img/icon-multipliers.png);
+    background-image: url(./img/icon-multipliers.png);
     background-repeat: no-repeat;
     width: 36px;
     background-size: 35px;

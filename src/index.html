@@ -16,14 +16,14 @@
       <section class="display-flex container-login" id="cont-login">
         <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
         <div class="cont-inputs">
-          <label class="classLabel">Usuario:</label>
-          <input type="text" id="inputUname" class="classInput">
-          <label class="classLabel">Contraseña:</label>
-          <input type="password" id="inputPsw" class="classInput">
-          <a href="#" class="classAhref" >¿Olvidaste tu contraseña?</a>
+          <label class="class-label">Usuario:</label>
+          <input type="text" id="inputUname" class="class-input">
+          <label class="class-label">Contraseña:</label>
+          <input type="password" id="inputPsw" class="class-input">
+          <a href="#" class="class-ahref" >¿Olvidaste tu contraseña?</a>
         </div>
-        <button id="inputSubmit" class="btn btnSubmit">INGRESA</button>
-        <p class="classCenter">¿No tienes una cuenta? <a href="#" class="fontWeight classCenter">Regístrate</a>
+        <button id="inputSubmit" class="btn btn-submit">INGRESA</button>
+        <p class="class-center">¿No tienes una cuenta? <a href="#" class="font-weight class-center">Regístrate</a>
          </p>
       </section>
       <section class="pokedex display-flex" id="pokedex"></section>
@@ -34,19 +34,19 @@
           <label>Ordenar por Spawn:</label>
           <div class="selectores">
             <select class="filtro" id="select-pokemon">
-              <option value="Todos">Todos</option>
-              <option value="Mis Pokémones">Mis Pokémones</option>
-              <option value="Por atrapar">Por atrapar</option>
+              <option value="all">Todos</option>
+              <option value="catched">Mis Pokémones</option>
+              <option value="uncatched">Por atrapar</option>
             </select>
-            <select class="filtro" >
-              <option value="">Predeterminado</option>
-              <option value="">A-Z</option>
-              <option value="">Z-A</option>
+            <select class="filtro" id="select-name">
+              <option value="default">Predeterminado</option>              
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
             </select>
-            <select class="filtro" >
-              <option value="">Predeterminado</option>
-              <option value="">Menor a Mayor</option>
-              <option value="">Mayor a Menor</option>
+            <select class="filtro" id="select-spawns">
+              <option value="default">Predeterminado</option>              
+              <option value="ascSpawns">Menor a Mayor</option>
+              <option value="descSpawns">Mayor a Menor</option>
             </select>
           </div>
         </div>
@@ -56,9 +56,7 @@
       </nav>
     </main>
     <footer></footer>
-    <!-- <script src="./data/lol/lol.js"></script> -->
     <script src="./data/pokemon/pokemon.js"></script>
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>

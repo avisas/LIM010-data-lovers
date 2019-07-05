@@ -1,7 +1,3 @@
-/* Manejo de data */
-
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
 const todoPokemon = POKEMON.pokemon;
 const pokemonesArray = () => {
   const newArrayPokemones = [];
@@ -26,5 +22,60 @@ const pokemonesArray = () => {
   }
   return newArrayPokemones;
 };
-
 window.example = pokemonesArray;
+
+
+
+const createEmptyObj = () => {
+  return {
+    pokemon: []
+  };
+};
+
+const getAllPokemon = () => {
+  let pokedexAll = createEmptyObj();
+  pokedexAll.pokemon = pokemonesArray().filter(pkm => true);
+  return pokedexAll;
+};
+
+const getCatchedPokemon = () => {
+  let pokedexCatched = createEmptyObj();
+  pokedexCatched.pokemon = pokemonesArray().filter(pkm => pkm.multipliers);
+  return pokedexCatched;
+};
+
+const getUncatchedPokemon = () => {
+  let pokedexUncatched = createEmptyObj();
+  pokedexUncatched.pokemon = pokemonesArray().filter(pkm => !(pkm.multipliers));
+  return pokedexUncatched;
+};
+
+const orderAscPokemon = (pokedexToShow) => {
+  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+    if (pkmA.name < pkmB.name) return -1;
+    if (pkmA.name > pkmB.name) return 1;
+    return 0;
+  });
+};
+
+const orderDescPokemon = (pokedexToShow) => {
+  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+    if (pkmA.name > pkmB.name) return -1;
+    if (pkmA.name < pkmB.name) return 1;
+    return 0;
+  });
+};
+const orderAscSpawns = (pokedexToShow) => {
+  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+    if (pkmA.avg_spawns < pkmB.avg_spawns) return -1;
+    if (pkmA.avg_spawns > pkmB.avg_spawns) return 1;
+    return 0;
+  });
+};
+const orderDescSpawns = (pokedexToShow) => {
+  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+    if (pkmA.avg_spawns > pkmB.avg_spawns) return -1;
+    if (pkmA.avg_spawns < pkmB.avg_spawns) return 1;
+    return 0;
+  });
+};
