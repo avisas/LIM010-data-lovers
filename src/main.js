@@ -3,7 +3,10 @@ const btnSubmit = document.getElementById('inputSubmit');
 const enteredUsername = document.getElementById('inputUname').value;
 const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
+const selectName = document.getElementById('select-name');
+const selectAttack = document.getElementById('select-attack');
 const navbar = document.getElementById('navbar');
+
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = getAllPokemon();
 
@@ -16,7 +19,7 @@ btnSubmit.addEventListener('click', () => {
 });
 
 selectPokemon.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO!!!');
+	console.log('HUBO UN CAMBIO! Select Pokemon');
 	switch (selectPokemon.value) {
 		case 'all':
 			pokedexToShow = getAllPokemon();
@@ -30,7 +33,28 @@ selectPokemon.addEventListener("change", () => {
 			pokedexToShow = getUncatchedPokemon();
 			renderPokedex(pokedexToShow);
 			break;
-	}
+	};
+});
+
+selectName.addEventListener("change", () => {
+	console.log('HUBO UN CAMBIO! Select Name');
+	switch (selectName.value) {
+		case 'default':
+			renderPokedex(pokedexToShow);
+			break;
+		case 'asc':
+			orderAscPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);
+			break;
+		case 'desc':
+			orderDescPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);
+			break;
+	};
+});
+
+selectAttack.addEventListener("change", () => {
+	console.log('HUBO UN CAMBIO! Select Attack');	
 });
 
 const renderPokedex = (pokemonList) => {
