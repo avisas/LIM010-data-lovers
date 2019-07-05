@@ -5,7 +5,7 @@ const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
 const navbar = document.getElementById('navbar');
 let sectionPokedex = document.getElementById('pokedex');
-let pokedexToShow = POKEMON_RAW_DATA;//should always be updated when the list of pokemon is updated
+let pokedexToShow = getAllPokemon();
 
 btnSubmit.addEventListener('click', () => {
 	if (enteredUsername === '' && enteredPassword === '') {
@@ -16,16 +16,19 @@ btnSubmit.addEventListener('click', () => {
 });
 
 selectPokemon.addEventListener("change", () => {
-	//console.log('HUBO UN CAMBIO!!!');
+	console.log('HUBO UN CAMBIO!!!');
 	switch (selectPokemon.value) {
 		case 'all':
+			pokedexToShow = getAllPokemon();
 			renderPokedex(pokedexToShow);
 			break;
 		case 'catched':
-			renderPokedex(/*TO BE DEFINED*/);
+			pokedexToShow = getCatchedPokemon();
+			renderPokedex(pokedexToShow);
 			break;
 		case 'uncatched':
-			renderPokedex(/*TO BE DEFINED*/);
+			pokedexToShow = getUncatchedPokemon();
+			renderPokedex(pokedexToShow);
 			break;
 	}
 });
@@ -42,8 +45,8 @@ const renderPokedex = (pokemonList) => {
 
 		for (let pokemonType of pokemon.type)
 			iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
-		if (pokemon.id===74) console.log([esNull, pokemon.img]);
-		sectionPokedex.innerHTML +=
+		
+			sectionPokedex.innerHTML +=
 		`<div class="content-pokemones display-flex ${esNull}">
 			<span class="cant-multipliers">x${cantMultipliers}</span>
 			<img class="img-pokemon" src="${pokemon.img}">
