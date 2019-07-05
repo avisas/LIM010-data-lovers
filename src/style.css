@@ -1,3 +1,6 @@
+
+
+
 ::-webkit-scrollbar {
 	width: 5px;
 }
@@ -135,14 +138,16 @@ header img{
 .por-atrapar img{
 	filter: grayscale(1);
 	}
-.por-atrapar .cant-multipliers{
+.por-atrapar .cant-multipliers {
 	display:none;
-    }
-    .soloMisPokemones .por-atrapar{
+}
+
+.soloMisPokemones .por-atrapar {
         display: none;
-    }
+}
+
 .cant-multipliers{
-    background-image: url(img/icon-multipliers.png);
+    background-image: url(./img/icon-multipliers.png);
     background-repeat: no-repeat;
     width: 36px;
     background-size: 35px;
