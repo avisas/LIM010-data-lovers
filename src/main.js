@@ -4,11 +4,12 @@ const enteredUsername = document.getElementById('inputUname').value;
 const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
 const selectName = document.getElementById('select-name');
-const selectAttack = document.getElementById('select-attack');
+const selectSpawns = document.getElementById('select-spawns');
 const navbar = document.getElementById('navbar');
 
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = getAllPokemon();
+let misPokemon = getCatchedPokemon();
 
 btnSubmit.addEventListener('click', () => {
 	if (enteredUsername === '' && enteredPassword === '') {
@@ -40,21 +41,34 @@ selectName.addEventListener("change", () => {
 	console.log('HUBO UN CAMBIO! Select Name');
 	switch (selectName.value) {
 		case 'default':
-			renderPokedex(pokedexToShow);
+			renderPokedex(getAllPokemon());
 			break;
 		case 'asc':
-			orderAscPokemon(pokedexToShow);
-			renderPokedex(pokedexToShow);
+			orderAscPokemon(misPokemon);
+			renderPokedex(misPokemon);
 			break;
 		case 'desc':
-			orderDescPokemon(pokedexToShow);
-			renderPokedex(pokedexToShow);
+			orderDescPokemon(misPokemon);
+			renderPokedex(misPokemon);
 			break;
 	};
 });
 
-selectAttack.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO! Select Attack');	
+selectSpawns.addEventListener("change", () => {
+	console.log('HUBO UN CAMBIO! Select Spawn');	
+	switch(selectSpawns.value) {
+		case 'default':
+			renderPokedex(getAllPokemon());
+			break;
+		case 'moreAttack' :
+			orderAscSpawn(getCatchedPokemon());
+			renderPokedex(getCatchedPokemon());
+			break;
+		case 'lessAttack' :
+			orderDescSpawn(getCatchedPokemon());
+			renderPokedex(getCatchedPokemon());
+			break;
+	};
 });
 
 const renderPokedex = (pokemonList) => {
