@@ -65,16 +65,14 @@ const orderDescPokemon = (pokedexToShow) => {
     return 0;
   });
 };
-
-const orderAscSpawn = (pokedexToShow) => {
+const orderAscSpawns = (pokedexToShow) => {
   pokedexToShow.pokemon.sort((pkmA, pkmB) => {
     if (pkmA.avg_spawns < pkmB.avg_spawns) return -1;
     if (pkmA.avg_spawns > pkmB.avg_spawns) return 1;
     return 0;
   });
 };
-
-const orderDescSpawn = (pokedexToShow) => {
+const orderDescSpawns = (pokedexToShow) => {
   pokedexToShow.pokemon.sort((pkmA, pkmB) => {
     if (pkmA.avg_spawns > pkmB.avg_spawns) return -1;
     if (pkmA.avg_spawns < pkmB.avg_spawns) return 1;
