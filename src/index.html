@@ -8,23 +8,24 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
-    <header>
-      <img src="img/icon-logo.png" alt="logo de pokémon">
-      <button class="btn btn-circulo">Salir</button>
+    <header id="header">
+      <img src="img/icon-logo.png" alt="logo de pokémon" class="img-header">
+      <button class="btn btn-circulo btn-header">Salir</button>
     </header>
     <main class="display-flex">
       <section class="display-flex container-login" id="cont-login">
         <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
         <div class="cont-inputs">
           <label class="class-label">Usuario:</label>
-          <input type="text" id="inputUname" class="class-input">
+          <input type="text" id="inputUname" class="class-input" placeholder="Usuario">
           <label class="class-label">Contraseña:</label>
-          <input type="password" id="inputPsw" class="class-input">
+          <input type="password" id="inputPsw" class="input-contrasena class-input" placeholder="Contraseña" >
+          <div id="iconClave" class="icon-clave" ></div>
           <a href="#" class="class-ahref" >¿Olvidaste tu contraseña?</a>
         </div>
         <button id="inputSubmit" class="btn btn-submit">INGRESA</button>
-        <p class="class-center">¿No tienes una cuenta? <a href="#" class="font-weight class-center">Regístrate</a>
-         </p>
+        <p class="class-center ">¿No tienes una cuenta? <a href="" class="call-action-resgistrar">Regístrate</a></p>
+        <p class="mensaje-alerta" id="mensaje-alerta"></p>
       </section>
       <section class="pokedex display-flex" id="pokedex"></section>
       <nav class="navbar display-flex" id="navbar">
@@ -39,23 +40,29 @@
               <option value="uncatched">Por atrapar</option>
             </select>
             <select class="filtro" id="select-name">
-              <option value="default">Ninguno</option>              
+              <option value="default">Predeterminado</option>              
               <option value="asc">A-Z</option>
               <option value="desc">Z-A</option>
             </select>
-            <select class="filtro" id="select-spawns">
-              <option value="default">Ninguno</option>              
+            <select class="filtro" id="select-avgSpawns">
+              <option value="default">Predeterminado</option>              
               <option value="ascSpawns">Menor a Mayor</option>
               <option value="descSpawns">Mayor a Menor</option>
             </select>
+            <select class="filtro" id="select-type">
+              <option value="default">Todos</option>
+            </select>
+            <select class="filtro" id="select-weaknesses">
+              <option value="default">Todos</option>
+            </select>
           </div>
         </div>
-        <button class="btn">Tipos</button>
-        <button class="btn">Debilidades</button>
         <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>
       </nav>
     </main>
-    <footer></footer>
+    <footer>
+      <p class="display-flex">Hecho con <img src="img/cerebro.png" alt="cerebro"> por Ale Visa | MarianWhat</p>
+    </footer>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>

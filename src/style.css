@@ -1,31 +1,28 @@
-
-
-
 ::-webkit-scrollbar {
-	width: 5px;
+	  width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-	background: rgb(38, 109, 185);
-	border-radius: 50px;
+	  background: rgb(38, 109, 185);
+	  border-radius: 50px;
 	}
 ::-webkit-scrollbar-thumb:hover {
-	background: #ffcc00;
+	  background: #ffcc00;
 	}
 
 ::-webkit-scrollbar-track {
-	background: rgb(243, 243, 243);
-	border-radius: 50px;
+	  background: rgb(243, 243, 243);
+	  border-radius: 50px;
 	}
 /*GENERAL-----------------------------------------*/
 *{
-	border: 0;
-	margin: 0;
-	padding: 0;
-	color: inherit;
-	text-decoration: none;
-	list-style-type: none;
-	box-sizing: border-box;
-	outline: none;
+	  border: 0;
+	  margin: 0;
+	  padding: 0;
+	  color: inherit;
+	  text-decoration: none;
+	  list-style-type: none;
+	  box-sizing: border-box;
+	  outline: none;
 }
 .display-flex{
     display: flex;
@@ -33,9 +30,9 @@
     align-items: center;
 }
 .btn{
-    border-radius: 5px;
-    height: 50px;
+    border-radius: 35px;
     cursor: pointer;
+    padding: 12px 17px;
 }
 .btn-circulo{
     background-color: #ED5564;
@@ -45,88 +42,136 @@
     position: absolute;
     right: 20px;
     top: 7px;
-}
-
-input{
- color: #474747;
+    display: none;
 }
 /*------------------------*/
 body{
-	font-family: 'Montserrat', sans-serif;
-	color: #474747;
+	  font-family: 'Montserrat', sans-serif;
+	  color: #474747;
 }
 main{
-	height: calc(100vh - 50px);
+	  height: calc(100vh - 88px);
 }
 header{
-  background-color: #266DB9;
-  height: 50px;
+    background-color: #266DB9;
+    height: 50px;
 }
 header img{
-  background-color: #266DB9;
-  height: 50px;
-  position: absolute;
+    height: 68px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
 }
+/* Form */
 .container-login{
-	flex-direction:column;
-	max-width: 460px;
-	width: 100%;
-	height: 516px;
-	color: whitesmoke;
-	background: linear-gradient(45deg, #192046, #53af9e8f);
+	  flex-direction:column;
+	  max-width: 460px;
+	  width: 100%;
+	  height: 100%;
+	  color: whitesmoke;
+	  background: linear-gradient(45deg, #192046, #53af9e8f);
 }
 .container-login img{
     width: 150px;
     height: auto;
+    margin-bottom: 20px;
 }
 .cont-inputs{
     width: 80%;
     max-width: 335px;
+    position: relative;
 }
 .class-label{
-    font-size: 16px;
     margin: 25px 0 5px;
     display: block;
+    padding-left: 12px;
 }
 .class-input{
-    width: 100%;
-    height: 45px;
-    background-color: whitesmoke;
+	  font-size: 15px;
+	  width: 100%;
+	  height: 45px;
+	  background-color: whitesmoke;
+	  color: #444444;
+	  padding: 12px 18px;
+	  border-radius: 20px;
 }
+.icon-clave{
+    background-image: url(img/icon-mostrar.png);
+    background-size: cover;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    right: 5.5%;
+    bottom: 41px;
+    cursor: pointer;
+  }
+.cont-acceso.click .icon-clave{
+    opacity: 0.8;
+  }
+.icon-clave.mostrar{
+    background-image: url(img/icon-ocultar.png);
+  }
 .btn-submit{
     width: 80%;
     max-width: 280px;
     background-color: #3897F0;
     font-weight: bold;
-    margin-top: 45px;
-    height: 50px;
+    margin: 18px 0 10px;
 }
 .class-ahref{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-align: right;
     display: block;
-    margin-top: 12px;
+    margin-top: 10px;
+    padding-right: 8px;
 }
-.font-weight{
+.call-action-resgistrar{
     font-weight: bold;
     color: #ffcb05;
-}
-.class-center{
     text-align: center;
     font-size: 15px;
     margin-top: 10px;
 }
+.mensaje-alerta{
+    color: #ffcc00;
+    font-size: 13px;
+    margin-top: 20px;
+    height: 15px;
+    text-align: center;
+    max-width: 80%;
+  }
+/* Form Fin*/
+footer{
+    background-color: #266db9;
+    text-align: center;
+    color: #ffffff;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+footer img{
+    width: 20px;
+    margin: 0 6px;
+}
+/* Footer Fin */
 .pokedex{
     display: none;
     background-image: url(img/fondo-pokemon.svg);
     background-size: cover;
     flex-wrap: wrap;
+    width: 100%;
     height: 100%;
     overflow: auto;
     justify-content: space-evenly;
     padding: 30px 0;
 }
+.show-elements .img-header, .show-elements .btn-header {
+    display: initial;
+}
+
 .content-pokemones{
     width: 15%;
     min-width: 110px;
@@ -136,16 +181,8 @@ header img{
     margin: 20px 10px;
 }
 .por-atrapar img{
-	filter: grayscale(1);
-	}
-.por-atrapar .cant-multipliers {
-	display:none;
-}
-
-.soloMisPokemones .por-atrapar {
-        display: none;
-}
-
+	  filter: grayscale(1);
+  }
 .cant-multipliers{
     background-image: url(./img/icon-multipliers.png);
     background-repeat: no-repeat;
@@ -157,10 +194,13 @@ header img{
     top: -10px;
     right: 25px;
     z-index: 1;
+  }
+.por-atrapar .cant-multipliers{
+	  display:none;
 }
+
 .icon-pokeball{
-	
-width: 15px;
+    width: 15px;
 }
 .img-pokemon{
     width: 100%;
@@ -191,36 +231,25 @@ width: 15px;
 }
 .navbar{
     position: fixed;
-    bottom: 0;
+    bottom: 38px;
     z-index: 2;
     overflow: hidden;
     width: 100%;
-    /* display: flex; */
-    /* justify-content: space-around; */
     padding: 24px 0;
     flex-wrap: wrap;
     display: none;
-}
-.navbar:after{
-    content:"";
-    background-color: #5b4f4f6e;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    filter: blur(30px);
+    background-color: #b1b1b1;
 }
 .cont-filtros{
     min-width: 320px;
 }
-.cont-filtros label{}
+.cont-filtros label{font-size: 11px;width: 20%;}
 .selectores{
-	background-color: white;
-	width: fit-content;
-	border-radius: 26px;
-	overflow: hidden;
-	text-align: center;
+	  background-color: white;
+	  width: fit-content;
+	  border-radius: 26px;
+	  overflow: hidden;
+	  text-align: center;
 	}
 .filtro{
     padding: 13px 0px;
@@ -231,37 +260,36 @@ width: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding: 0 18px; */
-    border-radius: 26px;
-    /* flex-grow: 1; */
-    width: 16%;
-    max-width: 150px;
+  /* width: 16%; */
+  /* max-width: 150px; */
 }
-.btn img{
-	height: 22px;
-	margin-left: 7px;
+.btn img {
+	  height: 22px;
+	  margin-left: 7px;
 }
-.flex{
-  display:flex !important;
+.flex {
+    display:flex !important;
 }
-.none{
-  display:none !important;
+.none {
+    display:none !important;
 }
 @media (min-width: 801px) {
-	
-  .classImageLogin{
-    width: 221.15px;
+.container-login{
+		
+height: 540px;
+	}
+.container-login img {
+    width: 200px;
   }
-  .classCenter{
+.classCenter {
   	width: 280px;
   	height: 22px;
   }
-  .content-pokemones{
+.content-pokemones {
     min-width: 130px;
     margin: 25px 14px;
-}
-  .nombre-pokemon {
+  }
+.nombre-pokemon {
     font-size: 18px;
-}
-  
+  }
 }

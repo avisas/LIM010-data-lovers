@@ -1,26 +1,49 @@
+const header = document.getElementById('header');
 const contLogin = document.getElementById('cont-login');
 const btnSubmit = document.getElementById('inputSubmit');
+const mensajeAlerta = document.getElementById('mensaje-alerta');
+const btnMostrarClave = document.getElementById('iconClave');
 const enteredUsername = document.getElementById('inputUname').value;
 const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
 const selectName = document.getElementById('select-name');
-const selectAvgSpawns = document.getElementById('select-spawns');
+const selectAvgSpawns = document.getElementById('select-avgSpawns');
+const selectType = document.getElementById('select-type');
+const selectWeaknesses = document.getElementById('select-weaknesses');
 const navbar = document.getElementById('navbar');
 
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = getAllPokemon();
 //let misPokemon = getCatchedPokemon();
+let cadenaMostrar = '';
+let claveOculta = 0;
 
 btnSubmit.addEventListener('click', () => {
-	if (enteredUsername === '' && enteredPassword === '') {
+	if (enteredUsername.value === '' && enteredPassword.value === '') {
 		sectionPokedex.classList.add('flex');
-		navbar.classList.add("flex");
-		contLogin.classList.add("none");
+		navbar.classList.add('flex');
+		contLogin.classList.add('none');
+		header.classList.add('show-elements');
+	} else {
+		mensajeAlerta.innerHTML = '**Usuario o/y contraseña incorrecta, intenta de nuevo.';
+		enteredPassword.value = '';
+		enteredUsername.value = '';
+	}
+});
+
+btnMostrarClave.addEventListener('click', () => {
+	if (claveOculta === 0) {
+		enteredPassword.setAttribute('type', 'text');
+		claveOculta = 1;
+		btnMostrarClave.classList.add('mostrar');
+	} else {
+		enteredPassword.setAttribute('type', 'password');
+		claveOculta = 0;
+		btnMostrarClave.classList.remove('mostrar');
 	}
 });
 
 selectPokemon.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO! Select Pokemon');
 	switch (selectPokemon.value) {
 		case 'all':
 			pokedexToShow = getAllPokemon();
@@ -38,7 +61,6 @@ selectPokemon.addEventListener("change", () => {
 });
 
 selectName.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO! Select Name');
 	switch (selectName.value) {
 		case 'default':
 			selectAvgSpawns.value = 'default';
@@ -59,7 +81,6 @@ selectName.addEventListener("change", () => {
 });
 
 selectAvgSpawns.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO! Select Spawn');
 	switch (selectAvgSpawns.value) {
 		case 'default':
 			selectName.value = 'default';
@@ -77,6 +98,22 @@ selectAvgSpawns.addEventListener("change", () => {
 			renderPokedex(pokedexToShow);
 			break;
 	};
+});
+
+selectType.addEventListener('change', () => {
+	if (selectType.value === 'default') {
+		renderPokedex(getAllPokemon());
+	} else {
+		renderPokedex(getTypePokemon(selectType.value));
+	}
+});
+
+selectWeaknesses.addEventListener('change', () => {
+	if (selectWeaknesses.value === 'default') {
+		renderPokedex(getAllPokemon());
+	} else {
+		renderPokedex(getWeaknessesPokemon(selectWeaknesses.value));
+	}
 });
 
 const renderPokedex = (listOfPokemonToShow) => {
@@ -106,4 +143,12 @@ const renderPokedex = (listOfPokemonToShow) => {
 	};
 };
 
+const renderTypeOrWeaknessesPokedex = (select, pokemonList) => {
+	for (let index = 0; index < pokemonList.length; index++) {
+		select.innerHTML += `<option value=${pokemonList[index]}>${pokemonList[index]}</option>`;
+	};
+};
+
 renderPokedex(pokedexToShow);
+renderTypeOrWeaknessesPokedex(selectType, getListTypePokemon());
+renderTypeOrWeaknessesPokedex(selectWeaknesses, getListWeaknessesPokemon());
