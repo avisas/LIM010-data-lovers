@@ -4,12 +4,12 @@ const enteredUsername = document.getElementById('inputUname').value;
 const enteredPassword = document.getElementById('inputPsw').value;
 const selectPokemon = document.getElementById('select-pokemon');
 const selectName = document.getElementById('select-name');
-const selectSpawns = document.getElementById('select-spawns');
+const selectAvgSpawns = document.getElementById('select-spawns');
 const navbar = document.getElementById('navbar');
 
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = getAllPokemon();
-let misPokemon = getCatchedPokemon();
+//let misPokemon = getCatchedPokemon();
 
 btnSubmit.addEventListener('click', () => {
 	if (enteredUsername === '' && enteredPassword === '') {
@@ -41,51 +41,59 @@ selectName.addEventListener("change", () => {
 	console.log('HUBO UN CAMBIO! Select Name');
 	switch (selectName.value) {
 		case 'default':
-			renderPokedex(getAllPokemon());
+			selectAvgSpawns.value = 'default';
+			orderIdPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
 			break;
 		case 'asc':
-			orderAscPokemon(misPokemon);
-			renderPokedex(misPokemon);
+			selectAvgSpawns.value = 'default';
+			orderAscPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
 			break;
 		case 'desc':
-			orderDescPokemon(misPokemon);
-			renderPokedex(misPokemon);
+			selectAvgSpawns.value = 'default';
+			orderDescPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);
 			break;
 	};
 });
 
-selectSpawns.addEventListener("change", () => {
-	console.log('HUBO UN CAMBIO! Select Spawn');	
-	switch(selectSpawns.value) {
+selectAvgSpawns.addEventListener("change", () => {
+	console.log('HUBO UN CAMBIO! Select Spawn');
+	switch (selectAvgSpawns.value) {
 		case 'default':
-			renderPokedex(getAllPokemon());
+			selectName.value = 'default';
+			orderIdPokemon(pokedexToShow);
+			renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
 			break;
-		case 'moreAttack' :
-			orderAscSpawn(getCatchedPokemon());
-			renderPokedex(getCatchedPokemon());
+		case 'ascSpawns':
+			selectName.value = 'default';
+			orderAscSpawns(pokedexToShow);
+			renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
 			break;
-		case 'lessAttack' :
-			orderDescSpawn(getCatchedPokemon());
-			renderPokedex(getCatchedPokemon());
+		case 'descSpawns':
+			selectName.value = 'default';
+			orderDescSpawns(pokedexToShow);
+			renderPokedex(pokedexToShow);
 			break;
 	};
 });
 
-const renderPokedex = (pokemonList) => {
-  sectionPokedex.innerHTML = '';
-  for (let pokemon of pokemonList.pokemon) {
-    let esNull = '';
-    let cantMultipliers = 0;
-    let iconsTipo = '';
+const renderPokedex = (listOfPokemonToShow) => {
+	sectionPokedex.innerHTML = '';
+	for (let pokemon of listOfPokemonToShow) {
+		let esNull = '';
+		let cantMultipliers = 0;
+		let iconsTipo = '';
 
-    if (pokemon.multipliers === null) esNull = 'por-atrapar';
-    else cantMultipliers = pokemon.multipliers.length;
+		if (pokemon.multipliers === null) esNull = 'por-atrapar';
+		else cantMultipliers = pokemon.multipliers.length;
 
-    for (let pokemonType of pokemon.type)
-      iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
+		for (let pokemonType of pokemon.type)
+			iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
 
-    sectionPokedex.innerHTML +=
-      `<div class="content-pokemones display-flex ${esNull}">
+		sectionPokedex.innerHTML +=
+			`<div class="content-pokemones display-flex ${esNull}">
 			<span class="cant-multipliers">x${cantMultipliers}</span>
 			<img class="img-pokemon" src="${pokemon.img}">
 			<div class="contenido-poke">
@@ -95,7 +103,7 @@ const renderPokedex = (pokemonList) => {
 				<div>${pokemon.avg_spawns}</div>        
 			</div>
 		</div>`;
-  };
+	};
 };
 
 renderPokedex(pokedexToShow);

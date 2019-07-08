@@ -1,57 +1,42 @@
-const todoPokemon = POKEMON.pokemon;
-const pokemonesArray = () => {
-  const newArrayPokemones = [];
-  for (let i = 0; i < todoPokemon.length; i++) {
-    newArrayPokemones.push({
-      id: todoPokemon[i].id, 
-  		num: todoPokemon[i].num,  		
-  		name: todoPokemon[i].name,
-  		img: todoPokemon[i].img,
-  		type: todoPokemon[i].type,
-      height: todoPokemon[i].height,
-      weight: todoPokemon[i].weight,
-      candy: todoPokemon[i].candy,
-      candy_count: todoPokemon[i].candy_count,
-      egg: todoPokemon[i].egg,
-      avg_spawns: todoPokemon[i].avg_spawns,
-      multipliers: todoPokemon[i].multipliers,
-      weaknesses: todoPokemon[i].weaknesses,
-      prev_evolution: todoPokemon[i].prev_evolution,
-      next_evolution: todoPokemon[i].next_evolution
-  	});
+const pokemonReducedData = [];
+
+for (let infoPokemon of POKEMON.pokemon) {   // este infoPokemon ya es un objeto y arroja la lista original de POKEMON.
+  let reducedInfoPokemon = {
+    id: infoPokemon.id,
+    num: infoPokemon.num,
+    name: infoPokemon.name,
+    img: infoPokemon.img,
+    type: infoPokemon.type,
+    multipliers: infoPokemon.multipliers,
+    avg_spawns: infoPokemon.avg_spawns
   }
-  return newArrayPokemones;
+  pokemonReducedData.push(reducedInfoPokemon);   // si quiero agregar mas propertys, solo añado.
 };
-window.example = pokemonesArray;
 
-
-
-const createEmptyObj = () => {
-  return {
-    pokemon: []
-  };
-};
+window.example = pokemonReducedData;
 
 const getAllPokemon = () => {
-  let pokedexAll = createEmptyObj();
-  pokedexAll.pokemon = pokemonesArray().filter(pkm => true);
-  return pokedexAll;
-};
+  return pokemonReducedData.filter((pkm) => {return true});  // .filter siempre devuelve un nuevo array. (lo que hay dentro del parentesis, es una logica para comprobar que elemento va o no va)
+}; // Arrow function solo devuelve un valor de True o False (Boolean)
 
 const getCatchedPokemon = () => {
-  let pokedexCatched = createEmptyObj();
-  pokedexCatched.pokemon = pokemonesArray().filter(pkm => pkm.multipliers);
-  return pokedexCatched;
-};
+  return pokemonReducedData.filter((pkm) => {return pkm.multipliers});   // cada Pkm es un pokemon y evalua cada propiedad. Si multipliers retorna True, se ingresa.
+};                                                                         // todo array vacio o con elementos retorna true.
 
 const getUncatchedPokemon = () => {
-  let pokedexUncatched = createEmptyObj();
-  pokedexUncatched.pokemon = pokemonesArray().filter(pkm => !(pkm.multipliers));
-  return pokedexUncatched;
+  return pokemonReducedData.filter((pkm) => {return !(pkm.multipliers)});  // multipliers puede tomar valor de array o null. Si mutipliers regresa true y se niega, ya no ingresa.
+};
+
+const orderIdPokemon = (pokedexToShow) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
+    if (pkmA.id < pkmB.id) return -1;
+    if (pkmA.id > pkmB.id) return 1;
+    return 0;
+  });
 };
 
 const orderAscPokemon = (pokedexToShow) => {
-  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.name < pkmB.name) return -1;
     if (pkmA.name > pkmB.name) return 1;
     return 0;
@@ -59,21 +44,22 @@ const orderAscPokemon = (pokedexToShow) => {
 };
 
 const orderDescPokemon = (pokedexToShow) => {
-  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.name > pkmB.name) return -1;
     if (pkmA.name < pkmB.name) return 1;
     return 0;
   });
 };
+
 const orderAscSpawns = (pokedexToShow) => {
-  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.avg_spawns < pkmB.avg_spawns) return -1;
     if (pkmA.avg_spawns > pkmB.avg_spawns) return 1;
     return 0;
   });
 };
 const orderDescSpawns = (pokedexToShow) => {
-  pokedexToShow.pokemon.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.avg_spawns > pkmB.avg_spawns) return -1;
     if (pkmA.avg_spawns < pkmB.avg_spawns) return 1;
     return 0;
