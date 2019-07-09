@@ -108,7 +108,7 @@ const getWeaknessesPokemon = (opcion) =>{
 const getListWeaknessesPokemon = () =>{    // AQUIIIII 
   const arrayWeaknesses = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {
-    for (let y = 0; y < pokemonReducedData.weaknesses; y++) {
+    for (let y = 0; y < pokemonReducedData[x].weaknesses.length; y++) {
       arrayWeaknesses.push(pokemonReducedData[x].weaknesses[y]);
     }
   }
