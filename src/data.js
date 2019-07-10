@@ -8,7 +8,8 @@ for (let infoPokemon of POKEMON.pokemon) {   // este infoPokemon ya es un objeto
     img: infoPokemon.img,
     type: infoPokemon.type,
     multipliers: infoPokemon.multipliers,
-    avg_spawns: infoPokemon.avg_spawns
+    avgSpawns: infoPokemon.avg_spawns,
+    weaknesses: infoPokemon.weaknesses
   }
   pokemonReducedData.push(reducedInfoPokemon);   // si quiero agregar mas properties, solo añado.
 };
@@ -53,24 +54,24 @@ const orderDescPokemon = (pokedexToShow) => {
 
 const orderAscSpawns = (pokedexToShow) => {
   pokedexToShow.sort((pkmA, pkmB) => {
-    if (pkmA.avg_spawns < pkmB.avg_spawns) return -1;
-    if (pkmA.avg_spawns > pkmB.avg_spawns) return 1;
+    if (pkmA.avgSpawns < pkmB.avgSpawns) return -1;
+    if (pkmA.avgSpawns > pkmB.avgSpawns) return 1;
     return 0;
   });
 };
 
 const orderDescSpawns = (pokedexToShow) => {
   pokedexToShow.sort((pkmA, pkmB) => {
-    if (pkmA.avg_spawns > pkmB.avg_spawns) return -1;
-    if (pkmA.avg_spawns < pkmB.avg_spawns) return 1;
+    if (pkmA.avgSpawns > pkmB.avgSpawns) return -1;
+    if (pkmA.avgSpawns < pkmB.avgSpawns) return 1;
     return 0;
   });
 };
 
 const getTypePokemon = (opcion) => {
-  let pokedexUncatched = createEmptyObj();
-  for (let y = 0; y < pokemonesArray().length; y++) {
-    let pokemon = pokemonesArray()[y];
+  let pokedexUncatched = [];
+  for (let y = 0; y < pokemonReducedData.length; y++) {
+    let pokemon = pokemonReducedData[y];
     for (let i = 0; i < pokemon.type.length; i++) {
       if (pokemon.type[i].indexOf(opcion) > -1) {
         pokedexUncatched.pokemon.push(pokemon);
@@ -105,7 +106,7 @@ const getWeaknessesPokemon = (opcion) =>{
   return pokedexUncatched;
 };
 
-const getListWeaknessesPokemon = () =>{    // AQUIIIII 
+const getListWeaknessesPokemon = () =>{    
   const arrayWeaknesses = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {
     for (let y = 0; y < pokemonReducedData[x].weaknesses.length; y++) {

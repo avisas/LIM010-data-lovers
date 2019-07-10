@@ -102,7 +102,7 @@ selectAvgSpawns.addEventListener("change", () => {
 
 selectType.addEventListener('change', () => {
 	if (selectType.value === 'default') {
-		renderPokedex(getAllPokemon());
+		renderPokedex(pokemonReducedData);
 	} else {
 		renderPokedex(getTypePokemon(selectType.value));
 	}
@@ -137,7 +137,7 @@ const renderPokedex = (listOfPokemonToShow) => {
 				<h2 class="nombre-pokemon">${pokemon.name}</h2>
 				<p class="num-pokemon">#${pokemon.num}</p>
         <div class="cont-tipo">${iconsTipo}</div>
-				<div>${pokemon.avg_spawns}</div>        
+				<div>${pokemon.avgSpawns}</div>        
 			</div>
 		</div>`;
 	};

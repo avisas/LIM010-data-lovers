@@ -28,8 +28,7 @@
         <p class="mensaje-alerta" id="mensaje-alerta"></p>
       </section>
       <section class="pokedex display-flex" id="pokedex"></section>
-      <nav class="navbar display-flex" id="navbar">
-        <div class="cont-filtros">
+      <nav class="navbar display-flex cont-filtros" id="navbar">
           <label>Pokémones:</label>
           <label>Ordenar por nombre:</label>
           <label>Ordenar por Spawn:</label>
@@ -55,15 +54,9 @@
             <select class="filtro" id="select-weaknesses">
               <option value="default">Todos</option>
             </select>
-            <select class = " " id="select-egg">
-              <button id ="2km">Huevos de 2km.</button>
-              <button id ="5km">Huevos de 5km.</button>
-              <button id ="10km">Huevos de 10km.</button>
-              <div id="drawChart"></div>
-            </select>
-          </div>
-        </div>
-        <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>
+            </div>
+            <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>            
+            <!-- <div id="drawChart"></div> -->
       </nav>
     </main>
     <footer>
