@@ -3,37 +3,28 @@
 ## Índice
 
 - [Índice](#índice)
-- [Preámbulo](#preámbulo)
+- [¿De que trata Pokémon?](#dequetrata)
 - [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
 - [Consideraciones generales](#consideraciones-generales)
 - [Requerimientos del proyecto](#requerimientos-del-proyecto)
 - [Contenido de referencia](#contenido-de-referencia)
 
 ***
+## Investigación UX
 
-## Preámbulo
+## ¿De que trata Pokémon?
 
-Según un estudio de IBM, el 90% de la data que existe hoy ha sido creada durante 
-los últimos dos años. Cada día generamos 2.5 trillones de bytes de datos, una 
-cifra sin precedentes.
+Pokémon es una página web que contiene a 151 pokemons de la primera generación. Fue creada con la finalidad de que el usuario pueda interactuar con sus pokemons de una manera fácil, ágil y divertida. Aquí, el usuario podrá identificar cuantos pokemons tiene, cuantos les falta por atrapar, ordenarlos en orden ascendente y descendente, selecionar por orden de aparición y visualizar el porcentaje de huevos de cada tipo.
 
-No obstante, los datos por sí mismos son de poca utilidad. Para que esas 
-grandes cantidades de datos se conviertan en **información** fácil de leer para 
-los usuarios, necesitamos entender y procesar estos datos. Una manera simple de 
-hacerlo es creando _interfaces_ y _visualizaciones_.
 
-En la siguiente imagen, podrás ver cómo con la data que que se ve en la parte 
-izquierda se puede construir una interfaz amigable y entendible por el usuario 
-al lado derecho.
 
-![json-interfaz](https://lh4.googleusercontent.com/Tn-RPXS26pVvOTdUzRT1KVaJ-_QbFs9SpcGLxSPE43fgbHaXtFgMUInuDt7kV41DkT1j8Tt29V0LxQW7SMtC6digOIhfTXSBKdwI08wUwhD3RAqlwy0hjfmhZ2BFe91mtmCSEqysfgk)
-
-\* Puedes ver el detalle de la data en este [link](https://gist.github.com/lalogf/dd4aa3017a9f8aa8f90dfbca382c4dc9#file-student-json)
-y la interfaz construida en este [link](https://app.talento.laboratoria.la/profile/HFOoMpOreBU2psCcjjLg5O2EWEv2).
 
 ## Objetivos de aprendizaje
 
-El objetivo principal de este proyecto es que aprendas a diseñar y construir 
+El objetivo principal de este proyecto es que el usuario pueda saber cuantos pokemons tiene y cuantos les falta por atrapar.
+
+
+aprendas a diseñar y construir 
 una interfaz web donde se pueda visualizar y manipular data, entendiendo lo que 
 el usuario necesita a través de las historias de usuario.
 
