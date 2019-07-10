@@ -80,6 +80,7 @@ const getTypePokemon = (opcion, pokedexToShow) => {
   }
   return pokedexUncatched;
 };
+
 const getListTypePokemon = () =>{
   const arrayType = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {
@@ -90,6 +91,7 @@ const getListTypePokemon = () =>{
   let sinRepetidos = [...new Set(arrayType)];
   return sinRepetidos;
 };
+
 const getWeaknessesPokemon = (opcion, pokedexToShowA) => { //Estoy aqui
   let pokedexUncatched = [];
   for (let y = 0; y < pokedexToShowA.length; y++) {
@@ -102,6 +104,7 @@ const getWeaknessesPokemon = (opcion, pokedexToShowA) => { //Estoy aqui
   }
   return pokedexToShow = pokedexUncatched;
 };
+
 const getListWeaknessesPokemon = () =>{    
   const arrayWeaknesses = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {

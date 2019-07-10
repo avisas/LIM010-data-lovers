@@ -29,6 +29,7 @@ btnSubmit.addEventListener('click', () => {
 		enteredUsername.value = '';
 	}
 });
+
 btnMostrarClave.addEventListener('click', () => {
 	if (claveOculta === 0) {
 		enteredPassword.setAttribute('type', 'text');
@@ -57,6 +58,7 @@ selectPokemon.addEventListener("change", () => {
 			break;
 	};
 });
+
 selectName.addEventListener("change", () => {
 	switch (selectName.value) {
 		case 'default':
