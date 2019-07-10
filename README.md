@@ -2,22 +2,21 @@
 
 ## Índice
 
-- [Índice](#índice)
 - [¿De que trata Pokémon?](#dequetrata)
 - [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
-- [Consideraciones generales](#consideraciones-generales)
+- [Investigación UX](#Investigación-Ux)
 - [Requerimientos del proyecto](#requerimientos-del-proyecto)
 - [Contenido de referencia](#contenido-de-referencia)
 
 ***
-## Investigación UX
 
 ## ¿De que trata Pokémon?
 
 Pokémon es una página web que contiene a 151 pokemons de la primera generación. Fue creada con la finalidad de que el usuario pueda interactuar con sus pokemons de una manera fácil, ágil y divertida. Aquí, el usuario podrá identificar cuantos pokemons tiene, cuantos les falta por atrapar, ordenarlos en orden ascendente y descendente, selecionar por orden de aparición y visualizar el porcentaje de huevos de cada tipo.
 
+## Investigación UX
 
-
+Este proyecto está dirigido al usuario registrado que cuenta con un usuario y contraseña.
 
 ## Objetivos de aprendizaje
 
