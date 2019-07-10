@@ -68,19 +68,18 @@ const orderDescSpawns = (pokedexToShow) => {
   });
 };
 
-const getTypePokemon = (opcion) => {
+const getTypePokemon = (opcion, pokedexToShow) => {
   let pokedexUncatched = [];
-  for (let y = 0; y < pokemonReducedData.length; y++) {
-    let pokemon = pokemonReducedData[y];
+  for (let y = 0; y < pokedexToShow.length; y++) {
+    let pokemon = pokedexToShow[y];
     for (let i = 0; i < pokemon.type.length; i++) {
       if (pokemon.type[i].indexOf(opcion) > -1) {
-        pokedexUncatched.pokemon.push(pokemon);
+        pokedexUncatched.push(pokemon);
       }
     }
   }
   return pokedexUncatched;
 };
-
 const getListTypePokemon = () =>{
   const arrayType = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {
@@ -88,24 +87,21 @@ const getListTypePokemon = () =>{
       arrayType.push(pokemonReducedData[x].type[y]);
     }
   }
-  
   let sinRepetidos = [...new Set(arrayType)];
   return sinRepetidos;
 };
-
-const getWeaknessesPokemon = (opcion) =>{
-  let pokedexUncatched = createEmptyObj();
-  for (let y = 0; y < pokemonReducedData.length; y++) {
-    let pokemon = pokemonReducedData[y];
+const getWeaknessesPokemon = (opcion, pokedexToShowA) => { //Estoy aqui
+  let pokedexUncatched = [];
+  for (let y = 0; y < pokedexToShowA.length; y++) {
+    let pokemon = pokedexToShowA[y];
     for (let i = 0; i < pokemon.weaknesses.length; i++) {
       if (pokemon.weaknesses[i].indexOf(opcion) > -1) {
-        pokedexUncatched.pokemon.push(pokemon);
+        pokedexUncatched.push(pokemon);
       }
     }
   }
-  return pokedexUncatched;
+  return pokedexToShow = pokedexUncatched;
 };
-
 const getListWeaknessesPokemon = () =>{    
   const arrayWeaknesses = [];
   for (let x = 0; x < pokemonReducedData.length; x++) {

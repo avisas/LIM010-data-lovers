@@ -14,7 +14,6 @@ const navbar = document.getElementById('navbar');
 
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = getAllPokemon();
-//let misPokemon = getCatchedPokemon();
 let cadenaMostrar = '';
 let claveOculta = 0;
 
@@ -30,7 +29,6 @@ btnSubmit.addEventListener('click', () => {
 		enteredUsername.value = '';
 	}
 });
-
 btnMostrarClave.addEventListener('click', () => {
 	if (claveOculta === 0) {
 		enteredPassword.setAttribute('type', 'text');
@@ -59,7 +57,6 @@ selectPokemon.addEventListener("change", () => {
 			break;
 	};
 });
-
 selectName.addEventListener("change", () => {
 	switch (selectName.value) {
 		case 'default':
@@ -102,17 +99,20 @@ selectAvgSpawns.addEventListener("change", () => {
 
 selectType.addEventListener('change', () => {
 	if (selectType.value === 'default') {
-		renderPokedex(pokemonReducedData);
+		orderIdPokemon(pokedexToShow);
+		renderPokedex(pokedexToShow);
 	} else {
-		renderPokedex(getTypePokemon(selectType.value));
+		renderPokedex(getTypePokemon(selectType.value, pokedexToShow));
 	}
 });
 
 selectWeaknesses.addEventListener('change', () => {
 	if (selectWeaknesses.value === 'default') {
-		renderPokedex(getAllPokemon());
+		orderIdPokemon(pokedexToShow);
+		renderPokedex(pokedexToShow);
 	} else {
-		renderPokedex(getWeaknessesPokemon(selectWeaknesses.value));
+    getWeaknessesPokemon(selectWeaknesses.value, pokedexToShow);
+    renderPokedex(pokedexToShow);
 	}
 });
 
