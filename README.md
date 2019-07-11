@@ -2,26 +2,24 @@
 
 ## Índice
 
-- [¿De que trata Pokémon?](#dequetrata)
+- [¿De que trata Pokémon?](#de-que-trata)
 - [Investigación UX](#Investigación-Ux)
 - [Usuario y Objetivo](#usuario-y-objetivo)
 - [Problemas y necesidades del usuario](#problemas-y-necesidades-del-usuario)
 - [Feedback](#feedback)
-- [Contenido de referencia](#contenido-de-referencia)
+- [Herramientas](#herramientas)
 
 ***
 
 ## ¿De que trata Pokémon?
 
-Pokémon es una página web que contiene a 151 pokemons de la primera generación. Fue creada con la finalidad de que el usuario pueda interactuar con sus pokemons de una manera fácil, ágil y divertida. Aquí, el usuario podrá identificar cuantos pokemons tiene, cuantos les falta por atrapar, ordenarlos en orden ascendente y descendente, selecionar por orden de aparición y visualizar el porcentaje de huevos de cada tipo.
+Pokémon es una página web creada especialmente para ti para que puedas interactuar con tus pokémon de una manera fácil, ágil y divertida. Aquí encontrarás a los 151 pokemon de la primera generación y todo lo que necesitas saber sobre tus pokemon y los que te faltan por atrapar. Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: LABORATORIA. ¡y listo!
 
 ## Investigación UX
 
-Este proyecto está dirigido al usuario registrado que cuenta con un usuario y contraseña.
-
 ### Usuario y Objetivo
 
-El objetivo principal de este proyecto es permitir que el usuario tenga un lugar donde encuentre todaque el usuario pueda saber cuantos pokemons tiene y cuantos les falta por atrapar.
+Este proyecto está dirigido al público en general y para usuarios registrados. El objetivo principal de este proyecto es permitir que el usuario tenga un experiencia única al momento de interactuar con sus pokemon.  
 
 
 
