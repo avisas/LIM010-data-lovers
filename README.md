@@ -23,24 +23,24 @@ Pokémon es una página web creada especialmente para ti para que puedas interac
 
 ## Investigación UX
 
-### Usuario y Objetivo
+### - Usuario y Objetivo
 
 Este proyecto está dirigido al público en general y para usuarios registrados. El objetivo principal de este proyecto es permitir que el usuario tenga un experiencia única al momento de interactuar con sus pokemon.  
 
-### Problemas y necesidades del usuario
+### - Problemas y necesidades del usuario
 
 Este proyecto facilitará al usuario poder acceder fácilmente a la página.
 Encontrará varios botones en la parte inferior donde podrá filtrar los pokemon que tiene, los que le faltan por atrapar, los tipos y sus debilidades. Además podrá ordenar en orden ascendente y descendente y por frecuencia de aparición para que los pueda ubicar facilmente.Por último, podrá obtener el porcentaje de los pokemon que aparecen en los diferentes tipo de huevos para saber que huevos eclosionar.
 
-### Prototipo de baja fidelidad
+### - Prototipo de baja fidelidad
 
-### Feedback
+### - Feedback
 
-### Prototipo de alta fidelidad
+### - Prototipo de alta fidelidad
 
 
 
-### Herramientas
+## Herramientas
 
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
