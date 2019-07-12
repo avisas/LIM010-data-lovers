@@ -12,7 +12,44 @@
       <img src="img/icon-logo.png" alt="logo de pokémon" class="img-header">
       <button class="btn btn-circulo btn-header">Salir</button>
     </header>
-    <main class="display-flex">
+    <nav class="navbar display-flex cont-filtros" id="navbar">
+      <button class="btn-menu" id="btn-menu">
+        <span class="line-menu"></span>
+        <span class="line-menu"></span>
+        <span class="line-menu"></span>
+      </button>
+        <label>Pokémones:</label>
+        <select class="filtro" id="select-pokemon">
+            <option value="all">Todos</option>
+            <option value="catched">Mis Pokémones</option>
+            <option value="uncatched">Por atrapar</option>
+          </select>
+          <span class="separador"></span>
+        <label>Ordenar por nombre:</label>
+        <select class="filtro" id="select-name">
+            <option value="default">Predeterminado</option>              
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+        <label>Ordenar por Spawn:</label>
+        <select class="filtro" id="select-avgSpawns">
+          <option value="default">Predeterminado</option>
+          <option value="ascSpawns">Menor a Mayor</option>
+          <option value="descSpawns">Mayor a Menor</option>
+        </select>
+        <span class="separador"></span>
+        <label>Filtrar por tipo:</label>
+        <select class="filtro" id="select-type">
+          <option value="default">Todos</option>
+        </select>
+        <label>Filtrar por debilidad:</label>
+        <select class="filtro" id="select-weaknesses">
+          <option value="default">Todos</option>
+        </select>
+        <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>            
+          <!-- <div id="drawChart"></div> -->
+    </nav>
+    <main class="display-flex">      
       <section class="display-flex container-login" id="cont-login">
         <img src="img/logo-pokemon.png" class="classImageLogin" alt="logo principal del loginForm">
         <div class="cont-inputs">
@@ -27,37 +64,11 @@
         <p class="class-center ">¿No tienes una cuenta? <a href="" class="call-action-resgistrar">Regístrate</a></p>
         <p class="mensaje-alerta" id="mensaje-alerta"></p>
       </section>
-      <section class="pokedex display-flex" id="pokedex"></section>
-      <nav class="navbar display-flex cont-filtros" id="navbar">
-          <label>Pokémones:</label>
-          <label>Ordenar por nombre:</label>
-          <label>Ordenar por Spawn:</label>
-          <div class="selectores">
-            <select class="filtro" id="select-pokemon">
-              <option value="all">Todos</option>
-              <option value="catched">Mis Pokémones</option>
-              <option value="uncatched">Por atrapar</option>
-            </select>
-            <select class="filtro" id="select-name">
-              <option value="default">Predeterminado</option>              
-              <option value="asc">A-Z</option>
-              <option value="desc">Z-A</option>
-            </select>
-            <select class="filtro" id="select-avgSpawns">
-              <option value="default">Predeterminado</option>              
-              <option value="ascSpawns">Menor a Mayor</option>
-              <option value="descSpawns">Mayor a Menor</option>
-            </select>
-            <select class="filtro" id="select-type">
-              <option value="default">Todos</option>
-            </select>
-            <select class="filtro" id="select-weaknesses">
-              <option value="default">Todos</option>
-            </select>
-            </div>
-            <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>            
-            <!-- <div id="drawChart"></div> -->
-      </nav>
+      <section class="pokedex display-flex" id="pokedex">
+        <div class="title" id="title-show">
+          <p>Pokémon: 59/151</p>
+        </div>
+      </section>
     </main>
     <footer>
       <p class="display-flex">Hecho con <img src="img/cerebro.png" alt="cerebro"> por Ale Visa | MarianWhat</p>

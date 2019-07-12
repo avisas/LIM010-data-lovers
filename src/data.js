@@ -13,17 +13,14 @@ for (let infoPokemon of POKEMON.pokemon) {   // este infoPokemon ya es un objeto
   }
   pokemonReducedData.push(reducedInfoPokemon);   // si quiero agregar mas properties, solo añado.
 };
-
 window.example = pokemonReducedData;
 
 const getAllPokemon = () => {
   return pokemonReducedData.filter((pkm) => {return true});  // .filter siempre devuelve un nuevo array. (lo que hay dentro del parentesis, es una logica para comprobar si el elemento va o no va)
 }; // Arrow function solo devuelve un valor de True o False (Boolean)
-
 const getCatchedPokemon = () => {
   return pokemonReducedData.filter((pkm) => {return pkm.multipliers});   // cada Pkm es un pokemon y evalua cada propiedad. Si multipliers retorna True, se ingresa.
 };                                                                         // todo array vacio o con elementos retorna true.
-
 const getUncatchedPokemon = () => {
   return pokemonReducedData.filter((pkm) => {return !(pkm.multipliers)});  // multipliers puede tomar valor de array o null. Si mutipliers regresa true y se niega, ya no ingresa.
 };
@@ -51,7 +48,6 @@ const orderDescPokemon = (pokedexToShow) => {
     return 0;
   });
 };
-
 const orderAscSpawns = (pokedexToShow) => {
   pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.avgSpawns < pkmB.avgSpawns) return -1;
