@@ -14,6 +14,8 @@ const selectEgg = document.getElementById('select-egg');
 const navbar = document.getElementById('navbar');
 const btnMenu = document.getElementById('btn-menu');
 
+let clean = document.getElementById('btn-clean');
+let exit = document.getElementById('btn-exit');
 let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = masterFilter('all', 'default', 'default', 'default');
 let claveOculta = 0;
@@ -55,6 +57,24 @@ btnMenu.addEventListener('click', () => {
     btnMenu.classList.remove('btn-menu-activo');
     menuOpen = 0;
   }
+});
+
+clean.addEventListener("click", () => {
+  document.getElementById('select-pokemon').value = 'all';
+  document.getElementById('select-name').value = 'default';
+  document.getElementById('select-avgSpawns').value = 'default';
+  document.getElementById('select-type').value = 'default';
+  document.getElementById('select-weaknesses').value = 'default';
+  document.getElementById('select-egg').value = 'default';
+  pokedexToShow = masterFilter('all', 'default', 'default', 'default');
+  renderPokedex(pokedexToShow);
+});
+
+exit.addEventListener("click", () => {
+  sectionPokedex.classList.remove('flex');
+  navbar.classList.remove('flex');
+  contLogin.classList.remove('none');
+  header.classList.remove('show-elements');
 });
 
 const renderPokedex = (listOfPokemonToShow) => {
