@@ -10,12 +10,12 @@ const selectName = document.getElementById('select-name');
 const selectAvgSpawns = document.getElementById('select-avgSpawns');
 const selectType = document.getElementById('select-type');
 const selectWeaknesses = document.getElementById('select-weaknesses');
+const selectEgg = document.getElementById('select-egg');
 const navbar = document.getElementById('navbar');
 const btnMenu = document.getElementById('btn-menu');
 
 let sectionPokedex = document.getElementById('pokedex');
-let pokedexToShow = getAllPokemon();
-let cadenaMostrar = '';
+let pokedexToShow = masterFilter('all', 'default', 'default', 'default');
 let claveOculta = 0;
 let menuOpen = 0;
 
@@ -26,11 +26,12 @@ btnSubmit.addEventListener('click', () => {
     contLogin.classList.add('none');
     header.classList.add('show-elements');
   } else {
-    mensajeAlerta.innerHTML = '**Usuario o/y contraseña incorrecta, intenta de nuevo.';
+    mensajeAlerta.innerHTML = '**Usuario o/y contraseña incorrecta, intenta de nuevo.**';
     enteredPassword.value = '';
     enteredUsername.value = '';
   }
 });
+
 btnMostrarClave.addEventListener('click', () => {
   if (claveOculta === 0) {
     enteredPassword.setAttribute('type', 'text');
@@ -42,99 +43,22 @@ btnMostrarClave.addEventListener('click', () => {
     btnMostrarClave.classList.remove('mostrar');
   }
 });
-btnMenu.addEventListener('click', () =>{
+
+btnMenu.addEventListener('click', () => {
   if (menuOpen === 0) {
     navbar.classList.add('navbar-show');
-    btnMenu.classList.add('btn-menu-activo');  
-    menuOpen = 1;  
-  } else {    
+    btnMenu.classList.add('btn-menu-activo');
+    menuOpen = 1;
+  } else {
     navbar.classList.remove('navbar-show');
-    btnMenu.classList.remove('btn-menu-activo');  
-    menuOpen = 0;  
+    btnMenu.classList.remove('btn-menu-activo');
+    menuOpen = 0;
   }
 });
-selectPokemon.addEventListener('change', () => {
-  switch (selectPokemon.value) {
-  case 'all':
-    pokedexToShow = getAllPokemon();
-    renderPokedex(pokedexToShow);
-    reset();
-    break;
-  case 'catched':
-    pokedexToShow = getCatchedPokemon();
-    renderPokedex(pokedexToShow);
-    reset();
-    break;
-  case 'uncatched':
-    pokedexToShow = getUncatchedPokemon();
-    renderPokedex(pokedexToShow);
-    reset();
-    break;
-  };
-});
-selectName.addEventListener('change', () => {
-  switch (selectName.value) {
-  case 'default':
-    selectAvgSpawns.value = 'default';
-    orderIdPokemon(pokedexToShow);
-    renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
-    break;
-  case 'asc':
-    selectAvgSpawns.value = 'default';
-    orderAscPokemon(pokedexToShow);
-    renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
-    break;
-  case 'desc':
-    selectAvgSpawns.value = 'default';
-    orderDescPokemon(pokedexToShow);
-    renderPokedex(pokedexToShow);
-    break;
-  };
-});
-selectAvgSpawns.addEventListener('change', () => {
-  switch (selectAvgSpawns.value) {
-  case 'default':
-    selectName.value = 'default';
-    orderIdPokemon(pokedexToShow);
-    renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
-    break;
-  case 'ascSpawns':
-    selectName.value = 'default';
-    orderAscSpawns(pokedexToShow);
-    renderPokedex(pokedexToShow);   // aqui con el pokedextoshow ya ordenado, lo mando a renderpokedex para que actualice la pantalla.
-    break;
-  case 'descSpawns':
-    selectName.value = 'default';
-    orderDescSpawns(pokedexToShow);
-    renderPokedex(pokedexToShow);
-    break;
-  };
-});
-// Otra seccion
-selectType.addEventListener('change', () => {
-  if (selectType.value === 'default') {
-    renderPokedex(getAllPokemon());
-    resetDos();
-    selectWeaknesses.value = 'default';
-  } else {
-    renderPokedex(getTypePokemon(selectType.value, getAllPokemon()));
-    resetDos();
-    selectWeaknesses.value = 'default';
-  }
-});
-selectWeaknesses.addEventListener('change', () => {
-  if (selectWeaknesses.value === 'default') {
-    renderPokedex(getAllPokemon());
-    resetDos();
-    selectType.value = 'default';
-  } else {
-    renderPokedex(getTypePokemon(selectWeaknesses.value, getAllPokemon()));
-    resetDos();
-    selectType.value = 'default';
-  }
-});
+
 const renderPokedex = (listOfPokemonToShow) => {
   sectionPokedex.innerHTML = '';
+  if (listOfPokemonToShow.length === 0) sectionPokedex.innerHTML = '<p>No se encontraron Pokemons!</p>';
   for (let pokemon of listOfPokemonToShow) {
     let esNull = '';
     let cantMultipliers = 0;
@@ -147,7 +71,7 @@ const renderPokedex = (listOfPokemonToShow) => {
       iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
 
     sectionPokedex.innerHTML +=
-			`<div class="content-pokemones display-flex ${esNull}">
+      `<div class="content-pokemones display-flex ${esNull}">
 			<span class="cant-multipliers">x${cantMultipliers}</span>
 			<img class="img-pokemon" src="${pokemon.img}">
 			<div class="contenido-poke">
@@ -160,23 +84,36 @@ const renderPokedex = (listOfPokemonToShow) => {
       </div>`;
   };
 };
-const renderTypeOrWeaknessesPokedex = (select, pokemonList) => {
-  for (let index = 0; index < pokemonList.length; index++) {
-    select.innerHTML += `<option value=${pokemonList[index]}>${pokemonList[index]}</option>`;
-  };
+
+const someFilterValueWasUpdated = () => {
+  pokedexToShow = masterFilter(selectPokemon.value, selectType.value, selectWeaknesses.value, selectEgg.value);
+  masterSorter(pokedexToShow, selectName.value, selectAvgSpawns.value);
+  renderPokedex(pokedexToShow);
 };
 
+const someSorterValueWasUpdated = () => {
+  masterSorter(pokedexToShow, selectName.value, selectAvgSpawns.value);
+  renderPokedex(pokedexToShow);
+};
+
+selectPokemon.addEventListener('change', someFilterValueWasUpdated);
+selectType.addEventListener('change', someFilterValueWasUpdated);
+selectWeaknesses.addEventListener('change', someFilterValueWasUpdated);
+selectEgg.addEventListener('change', someFilterValueWasUpdated);
+
+selectName.addEventListener('change', () => {
+  selectAvgSpawns.value = 'default';
+  someSorterValueWasUpdated();
+});
+
+selectAvgSpawns.addEventListener('change', () => {
+  selectName.value = 'default';
+  someSorterValueWasUpdated();
+});
+
+for (let pokemonType of getPokemonTypes()) {
+  selectType.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
+  selectWeaknesses.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
+}
+
 renderPokedex(pokedexToShow);
-renderTypeOrWeaknessesPokedex(selectType, getListTypePokemon());
-renderTypeOrWeaknessesPokedex(selectWeaknesses, getListWeaknessesPokemon());
-const reset = () =>{
-  selectName.value = 'default';
-  selectAvgSpawns.value = 'default';
-  selectType.value = 'default';
-  selectWeaknesses.value = 'default';
-};
-const resetDos = () =>{
-  selectPokemon.value = 'all';
-  selectName.value = 'default';
-  selectAvgSpawns.value = 'default';
-};

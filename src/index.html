@@ -28,8 +28,8 @@
         <label>Ordenar por nombre:</label>
         <select class="filtro" id="select-name">
             <option value="default">Predeterminado</option>              
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
+            <option value="ascName">A-Z</option>
+            <option value="descName">Z-A</option>
         </select>
         <label>Ordenar por Spawn:</label>
         <select class="filtro" id="select-avgSpawns">
@@ -46,8 +46,16 @@
         <select class="filtro" id="select-weaknesses">
           <option value="default">Todos</option>
         </select>
-        <button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>            
-          <!-- <div id="drawChart"></div> -->
+        <label>Filtrar por Huevo:</label>        
+        <select class="filtro" id="select-egg">
+          <option value="default">Todos</option>
+          <option value="2 km">2 Km</option>
+          <option value="5 km">5 Km</option>
+          <option value="10 km">10 Km</option>
+          <option value="Not in Eggs">No Egg</option>
+        </select>
+        <!--<button class="btn">% de Pokémon<img src="img/icon-huevo.png"></button>            
+           <div id="drawChart"></div> -->
     </nav>
     <main class="display-flex">      
       <section class="display-flex container-login" id="cont-login">
@@ -64,17 +72,13 @@
         <p class="class-center ">¿No tienes una cuenta? <a href="" class="call-action-resgistrar">Regístrate</a></p>
         <p class="mensaje-alerta" id="mensaje-alerta"></p>
       </section>
-      <section class="pokedex display-flex" id="pokedex">
-        <div class="title" id="title-show">
-          <p>Pokémon: 59/151</p>
-        </div>
-      </section>
+      <section class="pokedex display-flex" id="pokedex"></section>
     </main>
     <footer>
       <p class="display-flex">Hecho con <img src="img/cerebro.png" alt="cerebro"> por Ale Visa | MarianWhat</p>
     </footer>
-    <script src="./data/pokemon/pokemon.js"></script>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script src="./data/pokemon.js"></script>
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
