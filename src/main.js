@@ -18,6 +18,7 @@ let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = masterFilter('all', 'default', 'default', 'default');
 let claveOculta = 0;
 let menuOpen = 0;
+let pokemonPercentages = null; //esta variable se actualizara y contendra una array con los porcentajes
 
 btnSubmit.addEventListener('click', () => {
   if (enteredUsername.value === '' && enteredPassword.value === '') {
@@ -115,5 +116,11 @@ for (let pokemonType of getPokemonTypes()) {
   selectType.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
   selectWeaknesses.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
 }
+
+pokemonPercentages = calculateEggPercentage();
+selectEgg.innerHTML += `<option value="2 km">2 km -- ${pokemonPercentages["2km"]}%</option>`;
+selectEgg.innerHTML += `<option value="5 km">5 km -- ${pokemonPercentages["5km"]}%</option>`;
+selectEgg.innerHTML += `<option value="10 km">10 km -- ${pokemonPercentages["10km"]}%</option>`;
+selectEgg.innerHTML += `<option value="Not in Eggs">Not in Eggs -- ${pokemonPercentages["noEgg"]}%</option>`;
 
 renderPokedex(pokedexToShow);

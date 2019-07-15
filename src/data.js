@@ -16,6 +16,32 @@ for (let infoPokemon of POKEMON.pokemon) {   // este infoPokemon ya es un objeto
 };
 window.example = pokemonReducedData;
 
+const calculateEggPercentage = () => {
+  let totalPokemon = pokemonReducedData.length;
+  let total2KmEggs = 0, total5KmEggs = 0, total10KmEggs = 0, totalNoEggs = 0;
+  for (let pokemon of pokemonReducedData) {
+    switch (pokemon.egg) {
+      case '2 km':
+        total2KmEggs++;
+        break;
+      case '5 km':
+        total5KmEggs++;
+        break;
+      case '10 km':
+        total10KmEggs++;
+        break;
+      default:
+        totalNoEggs++;
+    }
+  }
+  return {
+    '2km': ((total2KmEggs / totalPokemon) * 100).toFixed(2),
+    '5km': ((total5KmEggs / totalPokemon) * 100).toFixed(2),
+    '10km': ((total10KmEggs / totalPokemon) * 100).toFixed(2),
+    'noEgg': ((totalNoEggs / totalPokemon) * 100).toFixed(2)
+  };
+};
+
 const getPokemonTypes = () => {
   let listOfPokemonTypes = [];
   for (let pokemon of pokemonReducedData) {
