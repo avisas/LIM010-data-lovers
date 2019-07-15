@@ -16,7 +16,9 @@
 
 ## ¿De que trata Pokémon?
 
-Pokémon es una página web creada especialmente para ti para que puedas interactuar con tus pokémon de una manera fácil, ágil y divertida. Aquí encontrarás a los 151 pokemon de la región de Kanto de la primera generación y todo lo que necesitas saber sobre tus pokemon y los que te faltan por atrapar. Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: LABORATORIA. ¡y listo!
+Pokémon es una página web creada especialmente para ti para que puedas interactuar con tus pokémon de una manera fácil, ágil y divertida. Aquí encontrarás a los 151 pokemon de la región de Kanto de la primera generación y todo lo que necesitas saber sobre tus pokemon y los que te faltan por atrapar. 
+
+Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: LABORATORIA. ¡y listo!
 
 ## Imagen del Proyecto
 
