@@ -36,6 +36,9 @@ Encontrará varios botones en la parte inferior donde podrá filtrar los pokemon
 
 ### - Prototipo de baja fidelidad
 
+Versión Mobile
+![mobile-prototipo](https://user-images.githubusercontent.com/50127415/61238043-76b6ad00-a701-11e9-8797-3e0d223a6d40.jpg)
+
 ### - Feedback
 
 ### - Prototipo de alta fidelidad
