@@ -16,7 +16,9 @@
 
 ## ¿De que trata Pokémon?
 
-Pokémon es una página web creada especialmente para ti para que puedas interactuar con tus pokémon de una manera fácil, ágil y divertida. Aquí encontrarás a los 151 pokemon de la región de Kanto de la primera generación y todo lo que necesitas saber sobre tus pokemon y los que te faltan por atrapar. Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: LABORATORIA. ¡y listo!
+Pokémon es una página web creada especialmente para ti para que puedas interactuar con tus pokémon de una manera fácil, ágil y divertida. Aquí encontrarás a los 151 pokemon de la región de Kanto de la primera generación y todo lo que necesitas saber sobre tus pokemon y los que te faltan por atrapar. 
+
+Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: LABORATORIA. ¡y listo!
 
 ## Imagen del Proyecto
 
@@ -34,7 +36,15 @@ Encontrará varios botones en la parte inferior donde podrá filtrar los pokemon
 
 ### - Prototipo de baja fidelidad
 
+Versión para web
+![20190715_124727](https://user-images.githubusercontent.com/50127415/61258672-6e2f9800-a73c-11e9-8add-d7d4a6b5c10e.jpg)
+
+Versión Mobile
+![mobile-prototipo](https://user-images.githubusercontent.com/50127415/61238043-76b6ad00-a701-11e9-8797-3e0d223a6d40.jpg)
+
 ### - Feedback
+
+El primer feedback que recibimos de nuestro primer prototipo de papel para versión web fue que sería mejor si dibujamos como quedaría la posible página web y no sólo poner cuadrados que no muestran ninguna información. 
 
 ### - Prototipo de alta fidelidad
 
