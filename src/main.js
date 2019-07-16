@@ -58,8 +58,7 @@ btnMenu.addEventListener('click', () => {
     menuOpen = 0;
   }
 });
-
-clean.addEventListener("click", () => {
+clean.addEventListener('click', () => {
   document.getElementById('select-pokemon').value = 'all';
   document.getElementById('select-name').value = 'default';
   document.getElementById('select-avgSpawns').value = 'default';
@@ -70,7 +69,7 @@ clean.addEventListener("click", () => {
   renderPokedex(pokedexToShow);
 });
 
-exit.addEventListener("click", () => {
+exit.addEventListener('click', () => {
   sectionPokedex.classList.remove('flex');
   navbar.classList.remove('flex');
   contLogin.classList.remove('none');
@@ -79,33 +78,77 @@ exit.addEventListener("click", () => {
 
 const renderPokedex = (listOfPokemonToShow) => {
   sectionPokedex.innerHTML = '';
-  if (listOfPokemonToShow.length === 0) sectionPokedex.innerHTML = '<p>No se encontraron Pokemons!</p>';
+  if (listOfPokemonToShow.length === 0) sectionPokedex.innerHTML = '<p class="alertNot">Lo siento, no se encontraron Pokemons. :(</p>';
   for (let pokemon of listOfPokemonToShow) {
     let esNull = '';
     let cantMultipliers = 0;
     let iconsTipo = '';
-
+    let tipoEgg = '';
+    let cantCandy = pokemon.candyCount;
+    if (pokemon.candyCount === undefined) {
+      cantCandy = 0;
+    };
     if (pokemon.multipliers === null) esNull = 'por-atrapar';
     else cantMultipliers = pokemon.multipliers.length;
-
+    if (pokemon.egg !== 'Not in Eggs') {
+      tipoEgg = `<span class="line-vertical"></span><div class="item-tripack"><div class='cont-tipo'><img src="img/icon-huevo.png" alt="icon-huevo">
+      <p class='text-tripack'>${pokemon.egg}</p></div></div>`;
+    }
     for (let pokemonType of pokemon.type)
-      iconsTipo += `<img src="img/icon-${pokemonType}.png" alt="${pokemonType}">`;
+      iconsTipo += `<div class='cont-tipo'><img src="img/icon-${pokemonType}.png" alt="${pokemonType}">
+      <strong class='text-tripack'>${pokemonType}</strong></div>`;
 
-    sectionPokedex.innerHTML +=
-      `<div class="content-pokemones display-flex ${esNull}">
-			<span class="cant-multipliers">x${cantMultipliers}</span>
-			<img class="img-pokemon" src="${pokemon.img}">
-			<div class="contenido-poke">
-				<h2 class="nombre-pokemon">${pokemon.name}</h2>
-				<p class="num-pokemon">#${pokemon.num}</p>
-        <div class="cont-tipo">${iconsTipo}</div>
-				<div>${pokemon.avgSpawns}</div>        
+    sectionPokedex.innerHTML += `<div class="content-pokemones display-flex ${esNull}">
+    <span class="cant-multipliers">x${cantMultipliers}</span>
+    <img class="img-pokemon" src="${pokemon.img}">
+    <div class="contenido-poke">
+      <h2 class="nombre-pokemon">${pokemon.name}</h2>
+<!-- <p class="num-pokemon">#${pokemon.num}</p> -->
+      <div class='info-tripack display-flex'>
+        <div class="item-tripack ">${iconsTipo}</div>
+        ${tipoEgg}
       </div>
-      <button id="" class="btn btn-more"></button>
-      </div>`;
+      <div class='info-tripack display-flex'>
+        <div class='item-tripack'>
+          <p class="num-pokemon">${pokemon.weight}</p>
+          <strong class='text-tripack'>Peso</strong>
+        </div>
+        <span class="line-vertical"></span>
+        <div class='item-tripack'>
+          <p class="num-pokemon">${pokemon.avgSpawns}</p>
+          <strong class='text-tripack'>% Spawns</strong>
+        </div>
+        <span class="line-vertical"></span>
+        <div class='item-tripack'>
+          <p class="num-pokemon">${pokemon.height}</p>
+          <strong class='text-tripack'>Altura</strong>
+        </div>
+      </div>
+      <table class="more-info">
+  <tr>
+    <th>Hora de Spawn:</th>
+    <td>${pokemon.spawnTime}</td>
+  </tr>
+  <tr>
+    <th>Debilidad:</th>
+    <td>${ pokemon.weaknesses.toString().replace(/,/g, ', ')}</td>
+  </tr>
+  <tr>
+    <th>Caramelo:</th>
+    <td>${pokemon.candy}</td>
+  </tr>
+  <tr>
+    <th>Cant. Caramelo:</th>
+    <td>${cantCandy}
+    </td>
+  </tr>
+</table>
+    </div>
+    
+    <button id="" class="btn btn-more"></button>
+</div>` ;
   };
 };
-
 const someFilterValueWasUpdated = () => {
   pokedexToShow = masterFilter(selectPokemon.value, selectType.value, selectWeaknesses.value, selectEgg.value);
   masterSorter(pokedexToShow, selectName.value, selectAvgSpawns.value);
@@ -138,9 +181,9 @@ for (let pokemonType of getPokemonTypes()) {
 }
 
 pokemonPercentages = calculateEggPercentage();
-selectEgg.innerHTML += `<option value="2 km">2 km -- ${pokemonPercentages["2km"]}%</option>`;
-selectEgg.innerHTML += `<option value="5 km">5 km -- ${pokemonPercentages["5km"]}%</option>`;
-selectEgg.innerHTML += `<option value="10 km">10 km -- ${pokemonPercentages["10km"]}%</option>`;
-selectEgg.innerHTML += `<option value="Not in Eggs">Not in Eggs -- ${pokemonPercentages["noEgg"]}%</option>`;
+selectEgg.innerHTML += `<option value="2 km">2 km -- ${pokemonPercentages['2km']}%</option>`;
+selectEgg.innerHTML += `<option value="5 km">5 km -- ${pokemonPercentages['5km']}%</option>`;
+selectEgg.innerHTML += `<option value="10 km">10 km -- ${pokemonPercentages['10km']}%</option>`;
+selectEgg.innerHTML += `<option value="Not in Eggs">Not in Eggs -- ${pokemonPercentages['noEgg']}%</option>`;
 
 renderPokedex(pokedexToShow);

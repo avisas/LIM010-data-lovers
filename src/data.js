@@ -10,7 +10,13 @@ for (let infoPokemon of POKEMON.pokemon) {   // este infoPokemon ya es un objeto
     multipliers: infoPokemon.multipliers,
     avgSpawns: infoPokemon.avg_spawns,
     weaknesses: infoPokemon.weaknesses,
-    egg: infoPokemon.egg
+    egg: infoPokemon.egg,
+    spawnTime: infoPokemon.spawn_time,
+    candy: infoPokemon.candy,
+    candyCount: infoPokemon.candy_count,
+    weight: infoPokemon.weight,
+    height: infoPokemon.height
+
   }
   pokemonReducedData.push(reducedInfoPokemon);   // si quiero agregar mas properties, solo añado.
 };
@@ -21,17 +27,17 @@ const calculateEggPercentage = () => {
   let total2KmEggs = 0, total5KmEggs = 0, total10KmEggs = 0, totalNoEggs = 0;
   for (let pokemon of pokemonReducedData) {
     switch (pokemon.egg) {
-      case '2 km':
-        total2KmEggs++;
-        break;
-      case '5 km':
-        total5KmEggs++;
-        break;
-      case '10 km':
-        total10KmEggs++;
-        break;
-      default:
-        totalNoEggs++;
+    case '2 km':
+      total2KmEggs++;
+      break;
+    case '5 km':
+      total5KmEggs++;
+      break;
+    case '10 km':
+      total10KmEggs++;
+      break;
+    default:
+      totalNoEggs++;
     }
   }
   return {
@@ -125,14 +131,14 @@ const masterFilter = (pkmsFilterValue, typeFilterValue, weaknessFilterValue, egg
 
 const complyPkmsFilter = (pokemon, value) => {
   switch (value) {
-    case 'catched':
-      return !!(pokemon.multipliers);
-      break;
-    case 'uncatched':
-      return !(pokemon.multipliers);
-      break;
-    default:
-      return true;
+  case 'catched':
+    return !!(pokemon.multipliers);
+    break;
+  case 'uncatched':
+    return !(pokemon.multipliers);
+    break;
+  default:
+    return true;
   };
 };
 
