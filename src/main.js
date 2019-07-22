@@ -23,7 +23,7 @@ let menuOpen = 0;
 let pokemonPercentages = null;// esta variable se actualizara y contendra una array con los porcentajes
 
 btnSubmit.addEventListener('click', () => {
-  if (enteredUsername.value === '' && enteredPassword.value === '') {
+  if (enteredUsername.value === 'laboratoria' && enteredPassword.value === 'LABORATORIA') {
     sectionPokedex.classList.add('flex');
     navbar.classList.add('flex');
     contLogin.classList.add('none');
