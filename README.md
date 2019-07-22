@@ -48,6 +48,7 @@ El primer feedback que recibimos de nuestro primer prototipo de papel para versi
 
 ### - Prototipo de alta fidelidad
 
+https://zpl.io/VQQYNzR
 
 
 ## Herramientas
