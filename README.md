@@ -22,6 +22,12 @@ Para ingresar solo necesitas colocar el usuario: laboratoria y la contraseña: L
 
 ## Imagen del Proyecto
 
+Screenshots del proyecto final.
+
+![web-login](https://user-images.githubusercontent.com/50127415/61717794-5bfabe80-ad27-11e9-8070-ffeb35a41b35.png)
+![web-menu3](https://user-images.githubusercontent.com/50127415/61717859-77fe6000-ad27-11e9-8a6b-83a77cf6a174.png)
+![web-menu2](https://user-images.githubusercontent.com/50127415/61717883-851b4f00-ad27-11e9-9402-3c20f37b3408.png)
+![web-menu1](https://user-images.githubusercontent.com/50127415/61717911-91071100-ad27-11e9-821b-6387eb78d328.png)
 
 ## Investigación UX
 
