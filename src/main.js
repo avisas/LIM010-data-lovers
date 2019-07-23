@@ -106,16 +106,15 @@ const renderPokedex = (listOfPokemonToShow) => {
     <img class="img-pokemon" src="${pokemon.img}">
     <div class="contenido-poke">
       <h2 class="nombre-pokemon">${pokemon.name}</h2>
-<!-- <p class="num-pokemon">#${pokemon.num}</p> -->
       <div class='info-tripack display-flex'>
-        <div class="item-tripack ">${iconsTipo}</div>
+      <div class="item-tripack ">${iconsTipo}</div>
         ${tipoEgg}
       </div>
       <div class='info-tripack display-flex'>
-        <div class='item-tripack'>
+      <div class='item-tripack'>
           <p class="num-pokemon">${pokemon.weight}</p>
-          <strong class='text-tripack'>Peso</strong>
-        </div>
+      <strong class='text-tripack'>Peso</strong>
+      </div>
         <span class="line-vertical"></span>
         <div class='item-tripack'>
           <p class="num-pokemon">${pokemon.avgSpawns}</p>
