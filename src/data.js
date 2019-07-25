@@ -55,22 +55,28 @@ const getPokemonTypes = (data) => {
   }
   return listOfPokemonTypes;
 };
+
+
 const masterSorter = (pokedexToShow, nameSorterValue, avgSpawnsSorterValue) => {
-  if ((nameSorterValue !== 'default') && (avgSpawnsSorterValue === 'default')) {// el usuario solicito ordenar por nombre    
-    return (nameSorterValue === 'ascName') ? orderAscName(pokedexToShow) : orderDescName(pokedexToShow);
+  if (nameSorterValue !== 'default') {
+    (nameSorterValue === 'ascName') ? orderAscName(pokedexToShow) : orderDescName(pokedexToShow);
   }
-  if ((nameSorterValue === 'default') && (avgSpawnsSorterValue !== 'default')) {// el usuario solicito ordenar por avg spawn
-    return (avgSpawnsSorterValue === 'ascSpawns') ? orderAscSpawns(pokedexToShow) : orderDescSpawns(pokedexToShow);
+  if (avgSpawnsSorterValue !== 'default') {
+    (avgSpawnsSorterValue === 'ascSpawns') ? orderAscSpawns(pokedexToShow) : orderDescSpawns(pokedexToShow);
   }
-  return ((nameSorterValue === 'default') && (avgSpawnsSorterValue === 'default')) ? orderIdPokemon(pokedexToShow) : false;
+  orderIdPokemon(pokedexToShow);
 };
+
+
 const orderIdPokemon = (pokedexToShow) => {
-  return pokedexToShow.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.id < pkmB.id) return -1;
+    if (pkmA.id > pkmB.id) return 1;
+    if (pkmA.id === pkmB.id) return 0;
   });
 };
 const orderAscName = (pokedexToShow) => {
-  return pokedexToShow.sort((pkmA, pkmB) => {
+  pokedexToShow.sort((pkmA, pkmB) => {
     if (pkmA.name < pkmB.name) return -1;
   });
 };
@@ -90,7 +96,7 @@ const orderDescSpawns = (pokedexToShow) => {
   });
 };
 const masterFilter = (data, pkmsFilterValue, typeFilterValue, weaknessFilterValue, eggFilterValue) => {
-  return data.filter(pokemon => {
+  return data.filter((pokemon) => {
     return (
       complyPkmsFilter(pokemon, pkmsFilterValue)
       && complyTypeFilter(pokemon, typeFilterValue)
@@ -101,7 +107,7 @@ const masterFilter = (data, pkmsFilterValue, typeFilterValue, weaknessFilterValu
 };
 const complyPkmsFilter = (pokemon, value) => {
   switch (value) {
-    case 'catched':
+    case 'catched': 
       return (pokemon.multipliers);
     case 'uncatched':
       return !(pokemon.multipliers);
