@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html lang="ES">
-  
-<head>
-  <meta charset="utf-8">
-  <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+HK&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width">
-</head>
-
-<body>
-  <header id="header">
-    <img src="img/icon-logo.png" alt="logo de pokémon" class="img-header">
-    <button class="btn btn-circulo btn-header" id="btn-exit">Salir</button>
-  </header>
-  <nav class="navbar display-flex cont-filtros" id="navbar">
-    <button class="btn-menu" id="btn-menu">
-      <span class="line-menu"></span>
-      <span class="line-menu"></span>
-      <span class="line-menu"></span>
-    </button>
-    <label>Pokémones:</label>
-    <select class="filtro" id="select-pokemon">
-      <option value="all">Todos</option>
-      <option value="catched">Mis Pokémones</option>
-      <option value="uncatched">Por atrapar</option>
-    </select>
-    <span class="separador"></span>
-    <label>Ordenar por nombre:</label>
-    <select class="filtro" id="select-name">
-      <option value="default">Predeterminado</option>
-      <option value="ascName">A-Z</option>
-      <option value="descName">Z-A</option>
-    </select>
-    <label>Ordenar por Spawn:</label>
-    <select class="filtro" id="select-avg-spawns">
-      <option value="default">Predeterminado</option>
-      <option value="ascSpawns">Menor a Mayor</option>
-      <option value="descSpawns">Mayor a Menor</option>
-    </select>
-    <span class="separador"></span>
-    <label>Filtrar por tipo:</label>
-    <select class="filtro" id="select-type">
-      <option value="default">Todos</option>
-    </select>
-    <label>Filtrar por debilidad:</label>
-    <select class="filtro" id="select-weaknesses">
-      <option value="default">Todos</option>
-    </select>
-    <label>Filtrar por Huevo:</label>
-    <select class="filtro" id="select-egg">
-      <option value="default">Todos</option>
-    </select>
-    <button class="btn" id="btn-clean">Limpiar</button>
-  </nav>
-  <main class="display-flex">
-    <section class="display-flex container-login" id="cont-login">
-      <img src="img/logo-pokemon.png" class="image-login" alt="logo principal del loginForm">
-      <div class="cont-inputs">
-        <label class="class-label">Usuario:</label>
-        <input type="text" id="input-name" class="class-input" placeholder="Usuario">
-        <label class="class-label">Contraseña:</label>
-        <input type="password" id="input-password" class="input-contrasena class-input" placeholder="Contraseña">
-        <div id="icon-clave" class="icon-clave"></div>
-        <a href="#" class="class-ahref">¿Olvidaste tu contraseña?</a>
-      </div>
-      <button id="btn-submit" class="btn btn-submit">INGRESA</button>
-      <p class="class-center ">¿No tienes una cuenta? <a href="" class="call-action-resgistrar">Regístrate</a></p>
-      <p class="mensaje-alerta" id="mensaje-alerta"></p>
-    </section>
-    <section class="pokedex display-flex" id="pokedex"></section>
-  </main>
-  <footer>
-    <p class="display-flex">Hecho con <img src="img/cerebro.png" alt="cerebro"> por Ale Visa | MarianWhat</p>
-  </footer>
-  <script src="./data/pokemon/pokemon.js"></script>
-  <script src="./data.js"></script>
-  <script src="./main.js"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon Ale - MarianWhat</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+  </head>
+  <body>
+    <header id="header">
+      <img src="img/icon-logo.png" alt="logo de pokémon" class="img-header">
+      <button class="btn btn-circulo btn-header" id ="btn-exit">Salir</button>
+    </header>
+    <nav class="navbar display-flex cont-filtros" id="navbar">
+      <button class="btn-menu" id="btn-menu">
+        <span class="line-menu"></span>
+        <span class="line-menu"></span>
+        <span class="line-menu"></span>
+      </button>
+        <label>Pokémones:</label>
+        <select class="filtro" id="select-pokemon">
+            <option value="all">Todos</option>
+            <option value="catched">Mis Pokémones</option>
+            <option value="uncatched">Por atrapar</option>
+          </select>
+          <span class="separador"></span>
+        <label>Ordenar por nombre:</label>
+        <select class="filtro" id="select-name">
+            <option value="default">Predeterminado</option>              
+            <option value="ascName">A-Z</option>
+            <option value="descName">Z-A</option>
+        </select>
+        <label>Ordenar por Spawn:</label>
+        <select class="filtro" id="select-avg-spawns">
+          <option value="default">Predeterminado</option>
+          <option value="ascSpawns">Menor a Mayor</option>
+          <option value="descSpawns">Mayor a Menor</option>
+        </select>
+        <span class="separador"></span>
+        <label>Filtrar por tipo:</label>
+        <select class="filtro" id="select-type">
+          <option value="default">Todos</option>
+        </select>
+        <label>Filtrar por debilidad:</label>
+        <select class="filtro" id="select-weaknesses">
+          <option value="default">Todos</option>
+        </select>
+        <label>Filtrar por Huevo:</label>        
+        <select class="filtro" id="select-egg">
+          <option value="default">Todos</option>       
+        </select>
+        <button class="btn" id="btn-clean">Limpiar</button>
+    </nav>
+    <main class="display-flex">      
+      <section class="display-flex container-login" id="cont-login">
+        <h2 class="image-login">Pokemon<img src="img/logo-pokemon.png" class="image-login" alt="logo principal del loginForm"></h2>
+        <div class="cont-inputs">
+          <label class="class-label">Usuario:</label>
+          <input type="text" id="input-name" class="class-input" placeholder="Usuario">
+          <label class="class-label">Contraseña:</label>
+          <input type="password" id="input-password" class="input-contrasena class-input" placeholder="Contraseña" >
+          <div id="icon-clave" class="icon-clave" ></div>
+          <a href="#" class="class-ahref" >¿Olvidaste tu contraseña?</a>
+        </div>
+        <button id="btn-submit" class="btn btn-submit">INGRESA</button>
+        <p class="class-center ">¿No tienes una cuenta? <a href="" class="call-action-resgistrar">Regístrate</a></p>
+        <p class="mensaje-alerta" id="mensaje-alerta"></p>
+      </section>
+      <section class="pokedex display-flex" id="pokedex">
+      </section>
+    </main>
+    <footer>
+      <p class="display-flex">Hecho con <img src="img/cerebro.png" alt="cerebro"> por Ale Visa | MarianWhat</p>
+    </footer>
+    <script src="./data/pokemon/pokemon.js"></script>
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>

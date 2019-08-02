@@ -86,10 +86,11 @@ header img{
   color: whitesmoke;
   background: linear-gradient(45deg, #192046, #53af9e8f);
 }
-.container-login img{
+.image-login{
   width: 150px;
   height: auto;
   margin-bottom: 20px;
+  font-size: 0;
 }
 .cont-inputs{
   width: 80%;
@@ -176,11 +177,27 @@ footer img{
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   justify-content: space-evenly;
   padding: 30px 25px;
   z-index: 0;
 }
+.title-pokedex{width: 75%;min-width: 230px;text-align: center;order: -1;color: #cecece;margin-top: 25px;background-color: #ffffff14;padding: 10px 15px;border-radius: 25px;}
+.title-pokedex span{
+    font-size: 15px;
+    color: #ffcc00d9;
+}
+.title-pokedex strong{
+    font-size: 14px;
+    color: #e7e7e7d9;
+    width: 100%;
+    display: block;
+}
+.title-pokedex  .line-vertical{
+    display: none;
+}
+
 .show-elements .img-header, .show-elements .btn-header {
   display: initial;
 }
@@ -360,7 +377,8 @@ border-color: #e8e8e81a;
   margin-bottom: 6px;
   color: #e3e3e3;
   }
-.filtro{margin-bottom: 9px;font-size: 13px;/* border: 1px solid #c6c6c6; */padding: 10px;border-radius: 20px;width: 150px;color: #dbdfe2;background-color: #266db9;}
+.filtro{margin-bottom: 9px;font-size: 13px;
+  padding: 10px;border-radius: 20px;width: 150px;color: #dbdfe2;background-color: #266db9;}
 .navbar .btn{
   background-color: #ffcc00;
   margin-top: 20px;
@@ -388,6 +406,24 @@ height: 540px;
 }
 .pokedex {
     padding: 30px 40px;
+}
+.title-pokedex {
+  
+width: 90%;
+  
+margin: 40px 0 20px;
+}
+.title-pokedex span{
+    font-size: 21px;
+}
+.title-pokedex strong{
+    font-size: 17px;
+    width: initial;
+    display: initial;
+}
+.title-pokedex  .line-vertical{
+    margin: 0px 10px 0px;
+    display: initial;
 }
 .nombre-pokemon {
   font-size: 18px;

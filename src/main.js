@@ -20,10 +20,10 @@ let sectionPokedex = document.getElementById('pokedex');
 let pokedexToShow = masterFilter(pokemonReducedData, 'all', 'default', 'default', 'default');
 let claveOculta = 0;
 let menuOpen = 0;
-let pokemonPercentages = null;// esta variable se actualizara y contendra una array con los porcentajes
+let pokemonPercentages = null;
 
 btnSubmit.addEventListener('click', () => {
-  if (enteredUsername.value === 'laboratoria' && enteredPassword.value === 'LABORATORIA') {
+  if (enteredUsername.value === '' && enteredPassword.value === '') {
     sectionPokedex.classList.add('flex');
     navbar.classList.add('flex');
     contLogin.classList.add('none');
@@ -34,7 +34,6 @@ btnSubmit.addEventListener('click', () => {
     enteredUsername.value = '';
   }
 });
-
 btnMostrarClave.addEventListener('click', () => {
   if (claveOculta === 0) {
     enteredPassword.setAttribute('type', 'text');
@@ -46,7 +45,6 @@ btnMostrarClave.addEventListener('click', () => {
     btnMostrarClave.classList.remove('mostrar');
   }
 });
-
 btnMenu.addEventListener('click', () => {
   if (menuOpen === 0) {
     navbar.classList.add('navbar-show');
@@ -68,16 +66,16 @@ clean.addEventListener('click', () => {
   pokedexToShow = masterFilter(pokemonReducedData, 'all', 'default', 'default', 'default');
   renderPokedex(pokedexToShow);
 });
-
 exit.addEventListener('click', () => {
   sectionPokedex.classList.remove('flex');
   navbar.classList.remove('flex');
   contLogin.classList.remove('none');
   header.classList.remove('show-elements');
 });
-
 const renderPokedex = (listOfPokemonToShow) => {
-  sectionPokedex.innerHTML = '';
+  let cantUnCat = null;  
+  sectionPokedex.innerHTML = '';    
+ 
   if (listOfPokemonToShow.length === 0) sectionPokedex.innerHTML = '<p class="alertNot">Lo siento, no se encontraron Pokemons. :(</p>';
   for (let pokemon of listOfPokemonToShow) {
     let esNull = '';
@@ -85,11 +83,13 @@ const renderPokedex = (listOfPokemonToShow) => {
     let iconsTipo = '';
     let tipoEgg = '';
     let cantCandy = pokemon.candyCount;
+    
     if (pokemon.candyCount === undefined) {
       cantCandy = 0;
     };
     if (pokemon.multipliers === null) {
       esNull = 'por-atrapar';
+      cantUnCat++;
     } else {
       cantMultipliers = pokemon.multipliers.length;
     }
@@ -97,24 +97,23 @@ const renderPokedex = (listOfPokemonToShow) => {
       tipoEgg = `<span class="line-vertical"></span><div class="item-tripack"><div class='cont-tipo'><img src="img/icon-huevo.png" alt="icon-huevo">
       <p class='text-tripack'>${pokemon.egg}</p></div></div>`;
     }
-    for (let pokemonType of pokemon.type)
+    for (let pokemonType of pokemon.type) 
       iconsTipo += `<div class='cont-tipo'><img src="img/icon-${pokemonType}.png" alt="${pokemonType}">
-      <strong class='text-tripack'>${pokemonType}</strong></div>`;
-
+      <strong class='text-tripack'>${pokemonType}</strong></div>`;   
     sectionPokedex.innerHTML += `<div class="content-pokemones display-flex ${esNull}">
     <span class="cant-multipliers">x${cantMultipliers}</span>
     <img class="img-pokemon" src="${pokemon.img}">
     <div class="contenido-poke">
       <h2 class="nombre-pokemon">${pokemon.name}</h2>
       <div class='info-tripack display-flex'>
-      <div class="item-tripack ">${iconsTipo}</div>
+        <div class="item-tripack ">${iconsTipo}</div>
         ${tipoEgg}
       </div>
       <div class='info-tripack display-flex'>
-      <div class='item-tripack'>
+        <div class='item-tripack'>
           <p class="num-pokemon">${pokemon.weight}</p>
-      <strong class='text-tripack'>Peso</strong>
-      </div>
+          <strong class='text-tripack'>Peso</strong>
+        </div>
         <span class="line-vertical"></span>
         <div class='item-tripack'>
           <p class="num-pokemon">${pokemon.avgSpawns}</p>
@@ -150,6 +149,7 @@ const renderPokedex = (listOfPokemonToShow) => {
     <button id="" class="btn btn-more"></button>
 </div>`;
   };
+  sectionPokedex.innerHTML += `<h2 class='title-pokedex' id='title-pokedex'><strong>Total Pokémon: <span>${listOfPokemonToShow.length}</span></strong><span class="line-vertical"></span><strong>Mis Pokémon: <span>${listOfPokemonToShow.length - cantUnCat}</span></strong></h2>`;
 };
 const someFilterValueWasUpdated = () => {
   pokedexToShow = masterFilter(pokemonReducedData, selectPokemon.value, selectType.value, selectWeaknesses.value, selectEgg.value);
@@ -164,28 +164,23 @@ selectPokemon.addEventListener('change', someFilterValueWasUpdated);
 selectType.addEventListener('change', someFilterValueWasUpdated);
 selectWeaknesses.addEventListener('change', someFilterValueWasUpdated);
 selectEgg.addEventListener('change', someFilterValueWasUpdated);
-
 selectName.addEventListener('change', () => {
   selectAvgSpawns.value = 'default';
   someSorterValueWasUpdated();
 });
-
 selectAvgSpawns.addEventListener('change', () => {
   selectName.value = 'default';
   someSorterValueWasUpdated();
 });
-
 for (let pokemonType of getPokemonTypes(pokemonReducedData)) {
   selectType.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
   selectWeaknesses.innerHTML += `<option value=${pokemonType}>${pokemonType}</option>`;
 }
-
 pokemonPercentages = calculateEggPercentage(pokemonReducedData);
 selectEgg.innerHTML += `<option value="2 km">2 km -- ${pokemonPercentages['km2']}%</option>`;
 selectEgg.innerHTML += `<option value="5 km">5 km -- ${pokemonPercentages['km5']}%</option>`;
 selectEgg.innerHTML += `<option value="10 km">10 km -- ${pokemonPercentages['km10']}%</option>`;
 selectEgg.innerHTML += `<option value="Not in Eggs">Not in Eggs -- ${pokemonPercentages['noEgg']}%</option>`;
-
 renderPokedex(pokedexToShow);
 
 function newFunction() {
